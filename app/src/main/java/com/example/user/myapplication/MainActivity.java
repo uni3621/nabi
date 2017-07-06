@@ -2,6 +2,7 @@ package com.example.user.myapplication;
 
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.util.Log;
         import android.widget.TabHost;
 
 public class MainActivity extends AppCompatActivity {
@@ -10,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d("ㅇㅇ","ㅇㅇ");
         TabHost tabHost = (TabHost)findViewById(R.id.tabHost1);
         tabHost.setup();
 
