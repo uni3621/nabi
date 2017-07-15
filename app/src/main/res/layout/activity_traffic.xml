@@ -7,20 +7,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/bookmark1"
+            android:layout_alignRight="@+id/bookmark1"
+            android:layout_alignTop="@+id/bookmark1" />
+
+        <TextView
+            android:id="@+id/bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="  즐겨찾기"
+            android:textStyle="bold"
+            android:layout_above="@+id/bookmark1"
+            android:layout_alignLeft="@+id/departure"
+            android:layout_alignStart="@+id/departure"
+            android:layout_marginBottom="11dp" />
+
         <EditText
-            android:id="@+id/editText8"
+            android:id="@+id/departurename"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/spinner3"
-            android:layout_marginTop="55dp"
-            android:layout_toEndOf="@+id/textView5"
-            android:layout_toRightOf="@+id/textView5"
+            android:layout_below="@+id/searchspinner"
+            android:layout_marginTop="34dp"
+            android:layout_toEndOf="@+id/departure"
+            android:layout_toRightOf="@+id/departure"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/searchspinner"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_alignParentLeft="true"
@@ -31,12 +51,12 @@
             android:layout_marginTop="50dp" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/searchname"
             android:layout_width="215dp"
             android:layout_height="45dp"
-            android:layout_alignTop="@+id/spinner3"
-            android:layout_toEndOf="@+id/spinner3"
-            android:layout_toRightOf="@+id/spinner3"
+            android:layout_alignTop="@+id/searchspinner"
+            android:layout_toEndOf="@+id/searchspinner"
+            android:layout_toRightOf="@+id/searchspinner"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
@@ -45,17 +65,17 @@
             android:id="@+id/searchView"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_alignTop="@+id/editText7"
-            android:layout_toEndOf="@+id/editText7"
-            android:layout_toRightOf="@+id/editText7" />
+            android:layout_alignTop="@+id/searchname"
+            android:layout_toEndOf="@+id/searchname"
+            android:layout_toRightOf="@+id/searchname" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/departure"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            android:layout_alignLeft="@+id/spinner3"
-            android:layout_alignStart="@+id/spinner3"
-            android:layout_alignTop="@+id/editText8"
+            android:layout_alignLeft="@+id/searchspinner"
+            android:layout_alignStart="@+id/searchspinner"
+            android:layout_alignTop="@+id/departurename"
             android:padding="10dp"
             android:text="출발지"
             android:textAlignment="center"
@@ -63,12 +83,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/destination"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            android:layout_alignTop="@+id/editText8"
-            android:layout_toEndOf="@+id/editText8"
-            android:layout_toRightOf="@+id/editText8"
+            android:layout_alignTop="@+id/departurename"
+            android:layout_toEndOf="@+id/departurename"
+            android:layout_toRightOf="@+id/departurename"
             android:padding="10dp"
             android:text="도착지"
             android:textAlignment="center"
@@ -76,22 +96,101 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText9"
+            android:id="@+id/destinationname"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_alignTop="@+id/textView6"
-            android:layout_toEndOf="@+id/textView6"
-            android:layout_toRightOf="@+id/textView6"
+            android:layout_alignTop="@+id/destination"
+            android:layout_toEndOf="@+id/destination"
+            android:layout_toRightOf="@+id/destination"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
 
         <SearchView
+            android:id="@+id/searchView2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignTop="@+id/editText9"
-            android:layout_toEndOf="@+id/editText9"
-            android:layout_toRightOf="@+id/editText9" />
+            android:layout_alignTop="@+id/destinationname"
+            android:layout_toEndOf="@+id/destinationname"
+            android:layout_toRightOf="@+id/destinationname" />
+
+        <AutoCompleteTextView
+            android:id="@+id/bookmark1"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignLeft="@+id/bookmark"
+            android:layout_alignStart="@+id/bookmark"
+            android:layout_centerVertical="true"
+            android:text="즐겨찾기1" />
+
+        <AutoCompleteTextView
+            android:id="@+id/bookmark2"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignEnd="@+id/bookmark1"
+            android:layout_alignLeft="@+id/bookmark1"
+            android:layout_alignRight="@+id/bookmark1"
+            android:layout_alignStart="@+id/bookmark1"
+            android:layout_below="@+id/bookmark1"
+            android:layout_marginTop="27dp"
+            android:text="즐겨찾기2" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/checkBox"
+            android:layout_alignStart="@+id/checkBox"
+            android:layout_alignTop="@+id/bookmark2" />
+
+        <AutoCompleteTextView
+            android:id="@+id/bookmark3"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignEnd="@+id/searchView2"
+            android:layout_alignRight="@+id/searchView2"
+            android:layout_alignTop="@+id/checkBox"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:text="즐겨찾기3" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/bookmark3"
+            android:layout_alignRight="@+id/bookmark3"
+            android:layout_alignTop="@+id/bookmark3" />
+
+        <TextView
+            android:id="@+id/search"
+            android:layout_width="50dp"
+            android:layout_height="15dp"
+            android:layout_above="@+id/searchname"
+            android:layout_alignLeft="@+id/searchspinner"
+            android:layout_alignStart="@+id/searchspinner"
+            android:text="검색"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/initialize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="초기화"
+            android:layout_alignBaseline="@+id/searchbutton"
+            android:layout_alignBottom="@+id/searchbutton"
+            android:layout_toRightOf="@+id/checkBox"
+            android:layout_toEndOf="@+id/checkBox" />
+
+        <Button
+            android:id="@+id/searchbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/searchView2"
+            android:layout_alignRight="@+id/searchView2"
+            android:layout_below="@+id/destinationname"
+            android:layout_marginTop="12dp"
+            android:text="검색" />
     </RelativeLayout>
 
 </LinearLayout>

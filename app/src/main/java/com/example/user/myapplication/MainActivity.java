@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         TabHost tabHost = (TabHost)findViewById(R.id.tabHost1);
         tabHost.setup();
 
@@ -20,10 +21,25 @@ public class MainActivity extends AppCompatActivity {
         homeTab.setIndicator("", getResources().getDrawable(R.drawable.home_icon));
         tabHost.addTab(homeTab);
 
-        TabHost.TabSpec trafficTab = tabHost.newTabSpec("Traffic tab");
+        TabHost.TabSpec trafficTab = tabHost.newTabSpec("Traffic Tab");
         trafficTab.setContent(R.id.traffic_tab);
-        trafficTab.setIndicator("TRAFFIC");
+        trafficTab.setIndicator("", getResources().getDrawable(R.drawable.traffic_icon));
         tabHost.addTab(trafficTab);
+
+        TabHost.TabSpec weatherTab = tabHost.newTabSpec("Weather Tab");
+        weatherTab.setContent(R.id.weather_tab);
+        weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
+        tabHost.addTab(weatherTab);
+
+        TabHost.TabSpec spendingTab = tabHost.newTabSpec("Spending Tab");
+        spendingTab.setContent(R.id.spending_tab);
+        spendingTab.setIndicator("", getResources().getDrawable(R.drawable.spending_icon));
+        tabHost.addTab(spendingTab);
+
+        TabHost.TabSpec mypageTab = tabHost.newTabSpec("Mypage Tab");
+        mypageTab.setContent(R.id.mypage_tab);
+        mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
+        tabHost.addTab(mypageTab);
 
     }
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/picture"
+            android:layout_alignLeft="@+id/picture"
+            android:layout_alignRight="@+id/picture"
+            android:layout_alignStart="@+id/picture"
+            android:layout_below="@+id/picture"
+            android:layout_marginTop="75dp"
+            android:text="Button1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2"
+            android:layout_below="@+id/button2"
+            android:layout_marginTop="42dp"
+            android:text="BUTTON3"
+            android:layout_alignRight="@+id/button2"
+            android:layout_alignEnd="@+id/button2" />
+
+        <EditText
+            android:id="@+id/nametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/idtext"
+            android:layout_alignStart="@+id/idtext"
+            android:layout_alignTop="@+id/picture"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/idtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/picture"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="ID" />
+
+        <QuickContactBadge
+            android:id="@+id/picture"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="46dp"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/button1"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_alignRight="@+id/button1"
+            android:layout_alignStart="@+id/button1"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="47dp"
+            android:text="Button2" />
+    </RelativeLayout>
+</LinearLayout>
