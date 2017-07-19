@@ -1,14 +1,15 @@
 package com.example.user.myapplication;
 
-        import android.app.ActivityGroup;
-        import android.content.Intent;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.widget.HeaderViewListAdapter;
-        import android.widget.TabHost;
 
-        import com.example.user.myapplication.activity.TrafficActivity;
+import android.app.ActivityGroup;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.widget.TabHost;
+
+import com.example.user.myapplication.activity.MyPageActivity;
+import com.example.user.myapplication.activity.SpendActivity;
+import com.example.user.myapplication.activity.TrafficActivity;
 
 public class MainActivity extends ActivityGroup {
 
@@ -17,33 +18,45 @@ public class MainActivity extends ActivityGroup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Toolbar mainToolBar = (Toolbar)findViewById(R.id.mainToolbar);
         TabHost maintabHost = (TabHost)findViewById(R.id.mainTabHost);
         maintabHost.setup(getLocalActivityManager());
 
-        TabHost.TabSpec homeTab = maintabHost.newTabSpec("Home Tab");
+        TabHost.TabSpec homeTab = maintabHost.newTabSpec("메인 화면");
         homeTab.setContent(R.id.home_tab);
         homeTab.setIndicator("", getResources().getDrawable(R.drawable.home_icon));
         maintabHost.addTab(homeTab);
 
-        TabHost.TabSpec trafficTab = maintabHost.newTabSpec("Traffic Tab");
+
+        TabHost.TabSpec trafficTab = maintabHost.newTabSpec("교통");
         trafficTab.setContent(new Intent(this, TrafficActivity.class));
         trafficTab.setIndicator("", getResources().getDrawable(R.drawable.traffic_icon));
         maintabHost.addTab(trafficTab);
 
-        TabHost.TabSpec weatherTab = maintabHost.newTabSpec("Weather Tab");
+        TabHost.TabSpec weatherTab = maintabHost.newTabSpec("날씨");
         weatherTab.setContent(R.id.weather_tab);
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
         maintabHost.addTab(weatherTab);
 
-        TabHost.TabSpec spendingTab = maintabHost.newTabSpec("Spending Tab");
-        spendingTab.setContent(R.id.spending_tab);
+        TabHost.TabSpec spendingTab = maintabHost.newTabSpec("지출관리");
+        spendingTab.setContent(new Intent(this, SpendActivity.class));
         spendingTab.setIndicator("", getResources().getDrawable(R.drawable.spending_icon));
         maintabHost.addTab(spendingTab);
 
-        TabHost.TabSpec mypageTab = maintabHost.newTabSpec("Mypage Tab");
-        mypageTab.setContent(R.id.mypage_tab);
+        TabHost.TabSpec mypageTab = maintabHost.newTabSpec("마이페이지");
+        mypageTab.setContent(new Intent(this, MyPageActivity.class));
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
+
+
+
+        mainToolBar.setTitle("메인화면");
+        maintabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                mainToolBar.setTitle(tabId);
+            }
+        });
 
     }
 }
