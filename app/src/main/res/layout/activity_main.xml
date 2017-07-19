@@ -5,9 +5,9 @@
     android:layout_height="match_parent">
 
     <TabHost
+        android:id="@+id/mainTabHost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tabHost1">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +25,6 @@
                 android:layout_height="match_parent">
 
 
-
                 <LinearLayout
                     android:id="@+id/home_tab"
                     android:layout_width="match_parent"
@@ -37,15 +36,14 @@
 
                         android:id="@+id/home_top"
 
+                        layout="@layout/activity_home"
+
                         android:layout_width="fill_parent"
 
                         android:layout_height="wrap_content"
 
-                        layout="@layout/activity_home"
-
                         />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -59,15 +57,14 @@
 
                         android:id="@+id/traffic_top"
 
+                        layout="@layout/activity_traffic"
+
                         android:layout_width="fill_parent"
 
                         android:layout_height="wrap_content"
 
-                        layout="@layout/activity_traffic"
-
                         />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -81,15 +78,14 @@
 
                         android:id="@+id/weather_top"
 
+                        layout="@layout/activity_spending"
+
                         android:layout_width="fill_parent"
 
                         android:layout_height="wrap_content"
 
-                        layout="@layout/activity_weather"
-
                         />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -98,19 +94,19 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:weightSum="1">
+
                     <include
 
                         android:id="@+id/spending_top"
+
+                        layout="@layout/activity_weather"
 
                         android:layout_width="fill_parent"
 
                         android:layout_height="wrap_content"
 
-                        layout="@layout/activity_spending"
-
                         />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -124,11 +120,11 @@
 
                         android:id="@+id/mypage_top"
 
+                        layout="@layout/activity_mypage"
+
                         android:layout_width="fill_parent"
 
                         android:layout_height="wrap_content"
-
-                        layout="@layout/activity_mypage"
 
                         />
                 </LinearLayout>
