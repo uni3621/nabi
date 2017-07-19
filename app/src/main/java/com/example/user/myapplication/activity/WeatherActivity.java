@@ -1,18 +1,14 @@
 package com.example.user.myapplication.activity;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import com.example.user.myapplication.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static android.R.attr.id;
 
 /**
  * Created by Park Ji Hoon on 2017-07-19.
@@ -33,9 +29,7 @@ public class WeatherActivity extends AppCompatActivity{
         setContentView(R.layout.activity_weather);
     }
 
-    dateNow = (TextView) findViewById(R.id.dateNow);
 
-    dateNow.setText(formatDate);
 
 
 }

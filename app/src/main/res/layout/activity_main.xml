@@ -2,7 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#003399"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:titleTextColor="@android:color/white" />
 
     <TabHost
         android:id="@+id/mainTabHost"
@@ -32,7 +42,10 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 71fb32a1873559086ed304a6f2e927c79ae087d2
                 </LinearLayout>
 
 
@@ -43,6 +56,10 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 71fb32a1873559086ed304a6f2e927c79ae087d2
                 </LinearLayout>
 
 
