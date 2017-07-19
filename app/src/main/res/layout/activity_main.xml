@@ -2,7 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mainToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#003399"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:titleTextColor="@android:color/white" />
 
     <TabHost
         android:id="@+id/mainTabHost"
@@ -32,17 +42,6 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <include
-
-                        android:id="@+id/home_top"
-
-                        layout="@layout/activity_home"
-
-                        android:layout_width="fill_parent"
-
-                        android:layout_height="wrap_content"
-
-                        />
                 </LinearLayout>
 
 
@@ -53,17 +52,7 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <include
 
-                        android:id="@+id/traffic_top"
-
-                        layout="@layout/activity_traffic"
-
-                        android:layout_width="fill_parent"
-
-                        android:layout_height="wrap_content"
-
-                        />
                 </LinearLayout>
 
 
@@ -74,17 +63,6 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <include
-
-                        android:id="@+id/weather_top"
-
-                        layout="@layout/activity_spending"
-
-                        android:layout_width="fill_parent"
-
-                        android:layout_height="wrap_content"
-
-                        />
                 </LinearLayout>
 
 
@@ -95,17 +73,7 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <include
 
-                        android:id="@+id/spending_top"
-
-                        layout="@layout/activity_weather"
-
-                        android:layout_width="fill_parent"
-
-                        android:layout_height="wrap_content"
-
-                        />
                 </LinearLayout>
 
 
@@ -116,17 +84,7 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <include
 
-                        android:id="@+id/mypage_top"
-
-                        layout="@layout/activity_mypage"
-
-                        android:layout_width="fill_parent"
-
-                        android:layout_height="wrap_content"
-
-                        />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
