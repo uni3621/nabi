@@ -1,12 +1,13 @@
 package com.example.user.myapplication;
 
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.widget.HeaderViewListAdapter;
-        import android.widget.TabHost;
+import android.app.ActivityGroup;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TabHost;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.user.myapplication.activity.WeatherActivity;
+
+public class MainActivity extends ActivityGroup {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TabHost maintabHost = (TabHost)findViewById(R.id.mainTabHost);
-        maintabHost.setup();
+        maintabHost.setup(getLocalActivityManager());
 
         TabHost.TabSpec homeTab = maintabHost.newTabSpec("Home Tab");
         homeTab.setContent(R.id.home_tab);
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         maintabHost.addTab(trafficTab);
 
         TabHost.TabSpec weatherTab = maintabHost.newTabSpec("Weather Tab");
-        weatherTab.setContent(R.id.weather_tab);
+        weatherTab.setContent(new Intent(this, WeatherActivity.class));
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
         maintabHost.addTab(weatherTab);
 
@@ -40,24 +41,6 @@ public class MainActivity extends AppCompatActivity {
         mypageTab.setContent(R.id.mypage_tab);
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
-
-        TabHost spendingtabHost = (TabHost)findViewById(R.id.spendingtabHost);
-        spendingtabHost.setup();
-
-        TabHost.TabSpec monthtab = spendingtabHost.newTabSpec("Month Tab");
-        monthtab.setContent(R.id.month_Tab);
-        monthtab.setIndicator("월별");
-        spendingtabHost.addTab(monthtab);
-
-        TabHost.TabSpec weektab = spendingtabHost.newTabSpec("Week Tab");
-        weektab.setContent(R.id.week_Tab);
-        weektab.setIndicator("주별");
-        spendingtabHost.addTab(weektab);
-
-        TabHost.TabSpec daytab = spendingtabHost.newTabSpec("Day Tab");
-        daytab.setContent(R.id.day_Tab);
-        daytab.setIndicator("일별");
-        spendingtabHost.addTab(daytab);
 
     }
 }
