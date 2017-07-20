@@ -4,12 +4,17 @@ package com.example.user.myapplication;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.widget.TabHost;
+
+import com.example.user.myapplication.activity.WeatherActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TabHost;
 
 import com.example.user.myapplication.activity.MyPageActivity;
 import com.example.user.myapplication.activity.SpendActivity;
 import com.example.user.myapplication.activity.TrafficActivity;
+
 
 public class MainActivity extends ActivityGroup {
 
@@ -34,7 +39,8 @@ public class MainActivity extends ActivityGroup {
         maintabHost.addTab(trafficTab);
 
         TabHost.TabSpec weatherTab = maintabHost.newTabSpec("날씨");
-        weatherTab.setContent(R.id.weather_tab);
+        weatherTab.setContent(new Intent(this, WeatherActivity.class));
+
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
         maintabHost.addTab(weatherTab);
 
@@ -47,7 +53,6 @@ public class MainActivity extends ActivityGroup {
         mypageTab.setContent(new Intent(this, MyPageActivity.class));
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
-
 
 
         mainToolBar.setTitle("메인화면");

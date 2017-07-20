@@ -20,8 +20,9 @@
 
         <activity android:name=".activity.SpendActivity"></activity>
         <activity android:name=".activity.TrafficActivity"></activity>
-        <activity android:name=".activity.SpendItemActivity" />
+        <activity android:name=".activity.WeatherActivity"></activity>
         <activity android:name=".activity.MyPageActivity"></activity>
+        <activity android:name=".activity.SpendItemActivity"></activity>
     </application>
 
 </manifest>
