@@ -4,16 +4,23 @@ package com.example.user.myapplication;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD
 
 import android.widget.TabHost;
 
 import com.example.user.myapplication.activity.WeatherActivity;
+=======
+>>>>>>> 70ffaf2a1f443bc93700c412967376f36741a11a
 import android.support.v7.widget.Toolbar;
 import android.widget.TabHost;
 
 import com.example.user.myapplication.activity.MyPageActivity;
 import com.example.user.myapplication.activity.SpendActivity;
+
 import com.example.user.myapplication.activity.TrafficActivity;
+
+import com.example.user.myapplication.activity.WeatherActivity;
+
 
 
 public class MainActivity extends ActivityGroup {
@@ -53,7 +60,6 @@ public class MainActivity extends ActivityGroup {
         mypageTab.setContent(new Intent(this, MyPageActivity.class));
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
-
 
         mainToolBar.setTitle("메인화면");
         maintabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
