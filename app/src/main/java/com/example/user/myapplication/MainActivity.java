@@ -3,17 +3,13 @@ package com.example.user.myapplication;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.widget.TabHost;
-
-import com.example.user.myapplication.activity.WeatherActivity;
-=======
 import android.support.v7.widget.Toolbar;
 import android.widget.TabHost;
 
 import com.example.user.myapplication.activity.MyPageActivity;
 import com.example.user.myapplication.activity.SpendActivity;
->>>>>>> 71fb32a1873559086ed304a6f2e927c79ae087d2
+import com.example.user.myapplication.activity.WeatherActivity;
+
 
 public class MainActivity extends ActivityGroup {
 
@@ -36,13 +32,9 @@ public class MainActivity extends ActivityGroup {
         trafficTab.setIndicator("", getResources().getDrawable(R.drawable.traffic_icon));
         maintabHost.addTab(trafficTab);
 
-<<<<<<< HEAD
-        TabHost.TabSpec weatherTab = maintabHost.newTabSpec("Weather Tab");
-        weatherTab.setContent(new Intent(this, WeatherActivity.class));
-=======
         TabHost.TabSpec weatherTab = maintabHost.newTabSpec("날씨");
-        weatherTab.setContent(R.id.weather_tab);
->>>>>>> 71fb32a1873559086ed304a6f2e927c79ae087d2
+        weatherTab.setContent(new Intent(this, WeatherActivity.class));
+
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
         maintabHost.addTab(weatherTab);
 
@@ -56,8 +48,6 @@ public class MainActivity extends ActivityGroup {
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
 
-<<<<<<< HEAD
-=======
         mainToolBar.setTitle("메인화면");
         maintabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
@@ -66,6 +56,5 @@ public class MainActivity extends ActivityGroup {
             }
         });
 
->>>>>>> 71fb32a1873559086ed304a6f2e927c79ae087d2
     }
 }
