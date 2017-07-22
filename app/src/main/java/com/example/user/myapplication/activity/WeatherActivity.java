@@ -25,11 +25,7 @@ import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
 
-    private LocationManager locationManager = null;
-    private LocationListener locationListener = null;
 
-    private TextView textLocation = null;
-    private ProgressBar pb = null;
     private Geocoder mGeocoder = new Geocoder(this, Locale.KOREA);
 
     private double lat,lng;
@@ -38,12 +34,14 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        TextView textLocation = (TextView) findViewById(R.id.textLocation);
+        TextView textTime = (TextView) findViewById(R.id.textTime);
 
-
+        //현재 시간 textView로 출력
         String currentTime = DateFormat.getDateTimeInstance().format(new Date());
 
-        textLocation.setText(currentTime);
+        textTime.setText(currentTime);
+
+        //현재 위치 (도시명)
 
 
     }
