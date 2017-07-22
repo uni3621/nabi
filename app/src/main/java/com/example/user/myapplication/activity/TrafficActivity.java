@@ -1,11 +1,18 @@
 package com.example.user.myapplication.activity;
 
+import android.app.Activity;
 import android.app.ActivityGroup;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.example.user.myapplication.R;
 
@@ -14,6 +21,8 @@ import com.example.user.myapplication.R;
  */
 
 public class TrafficActivity extends ActivityGroup {
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,5 +41,15 @@ public class TrafficActivity extends ActivityGroup {
         searchTab.setIndicator("최근검색");
         trafficTabHost.addTab(searchTab);
 
+    }
+
+    public void searchList(View v) {
+        Dialog dialog = new TrafficDialogActivity(this);
+        dialog.show();
+
+        // Dialog 사이즈 조절 하기
+        WindowManager.LayoutParams params =dialog.getWindow().getAttributes();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        dialog.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }
 }
