@@ -42,7 +42,7 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                </LinearLayout>
+
 
 
                 <LinearLayout
@@ -53,8 +53,10 @@
                     android:weightSum="1">
 
 
+
                 </LinearLayout>
 
+  </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/weather_tab"
@@ -73,7 +75,6 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-
                 </LinearLayout>
 
 
@@ -83,7 +84,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:weightSum="1">
-
 
                 </LinearLayout>
             </FrameLayout>

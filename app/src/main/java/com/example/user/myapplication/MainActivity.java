@@ -1,13 +1,26 @@
 package com.example.user.myapplication;
 
+
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+
+
+import android.widget.TabHost;
+
+import com.example.user.myapplication.activity.WeatherActivity;
+
 import android.support.v7.widget.Toolbar;
 import android.widget.TabHost;
 
 import com.example.user.myapplication.activity.MyPageActivity;
 import com.example.user.myapplication.activity.SpendActivity;
+
+import com.example.user.myapplication.activity.TrafficActivity;
+
+import com.example.user.myapplication.activity.WeatherActivity;
+
+
 
 public class MainActivity extends ActivityGroup {
 
@@ -25,13 +38,14 @@ public class MainActivity extends ActivityGroup {
         homeTab.setIndicator("", getResources().getDrawable(R.drawable.home_icon));
         maintabHost.addTab(homeTab);
 
+
         TabHost.TabSpec trafficTab = maintabHost.newTabSpec("교통");
-        trafficTab.setContent(R.id.traffic_tab);
+        trafficTab.setContent(new Intent(this, TrafficActivity.class));
         trafficTab.setIndicator("", getResources().getDrawable(R.drawable.traffic_icon));
         maintabHost.addTab(trafficTab);
 
         TabHost.TabSpec weatherTab = maintabHost.newTabSpec("날씨");
-        weatherTab.setContent(R.id.weather_tab);
+        weatherTab.setContent(new Intent(this, WeatherActivity.class));
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
         maintabHost.addTab(weatherTab);
 
