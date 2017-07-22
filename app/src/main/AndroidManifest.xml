@@ -3,6 +3,7 @@
     package="com.example.user.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/nabi_icon"
@@ -18,14 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.SpendActivity"></activity>
-        <activity android:name=".activity.TrafficActivity"></activity>
-        <activity android:name=".activity.WeatherActivity"></activity>
-        <activity android:name=".activity.MyPageActivity"></activity>
-        <activity android:name=".activity.SpendItemActivity"></activity>
-        <activity android:name=".activity.TrafficItemActivity"></activity>
-
+        <activity android:name=".activity.SpendActivity" />
+        <activity android:name=".activity.TrafficActivity" />
+        <activity android:name=".activity.WeatherActivity" />
+        <activity android:name=".activity.MyPageActivity" />
+        <activity android:name=".activity.SpendItemActivity" />
+        <activity android:name=".activity.TrafficItemActivity" />
+        <activity android:name=".activity.weathercalender" />
     </application>
 
 </manifest>
