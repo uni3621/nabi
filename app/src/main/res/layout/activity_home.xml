@@ -2,45 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:orientation="horizontal">
 
-        <AutoCompleteTextView
-            android:id="@+id/widget1"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="89dp"
-            android:text="위젯1"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/sun" />
 
-        <AutoCompleteTextView
-            android:id="@+id/widget2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/widget1"
-            android:layout_alignStart="@+id/widget1"
-            android:layout_below="@+id/widget1"
-            android:layout_marginTop="47dp"
-            android:text="위젯2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/editbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="34dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            android:clickable="true"
-            app:backgroundTint="@color/colorPrimaryDark"
-            app:fabSize="mini"
-            app:srcCompat="@android:drawable/ic_input_add" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="오늘의 날씨" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="지난 여름보다 평균 3도 정도 높은 35도입니다. 매우매우 덥고 땀이 주루루루루루룩 흐르는 날씨니 좌외선 조심하시고 야외활동 삼가하세요!" />
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

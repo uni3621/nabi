@@ -64,7 +64,8 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_below="@+id/linearLayout">
+        android:layout_below="@+id/linearLayout"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/textView6"
@@ -77,6 +78,14 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="289dp"
+            android:layout_weight="0.15" />
+
+        <TextView
+            android:id="@+id/spendEval"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:gravity="center"
+            android:text="지출 내역이 너무 많습니다! 9520원 정도 저축하세요!" />
     </LinearLayout>
 </RelativeLayout>
