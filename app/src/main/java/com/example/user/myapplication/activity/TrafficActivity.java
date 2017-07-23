@@ -52,4 +52,5 @@ public class TrafficActivity extends ActivityGroup {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         dialog.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }
+    
 }
