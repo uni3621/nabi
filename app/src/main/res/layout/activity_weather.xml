@@ -6,6 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +30,7 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             tools:textStyle="bold"
-            android:padding="35sp"
+            android:padding="8sp"
             android:typeface="monospace"
             android:gravity="center_horizontal"/>
     </LinearLayout>
@@ -63,46 +73,46 @@
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     tools:textStyle="bold"
-                    android:padding="15sp"
+                    android:padding="8sp"
                     android:typeface="monospace"/>
 
                 <TextView
                     android:id="@+id/textView7"
-                    android:layout_width="190dp"
-                    android:layout_height="45dp"
+                    android:layout_width="190sp"
+                    android:layout_height="45sp"
                     android:layout_weight="1"
                     android:background="#021E4F"
                     android:text="금일 습도"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     tools:textStyle="bold"
-                    android:padding="15sp"
+                    android:padding="8sp"
                     android:typeface="monospace"/>
 
                 <TextView
                     android:id="@+id/textView6"
-                    android:layout_width="190dp"
-                    android:layout_height="45dp"
+                    android:layout_width="190sp"
+                    android:layout_height="45sp"
                     android:layout_weight="1"
                     android:background="#021E4F"
                     android:text="금일 자외선 지수"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     tools:textStyle="bold"
-                    android:padding="15sp"
+                    android:padding="8sp"
                     android:typeface="monospace"/>
 
                 <TextView
                     android:id="@+id/textView5"
-                    android:layout_width="190dp"
-                    android:layout_height="45dp"
+                    android:layout_width="190sp"
+                    android:layout_height="45sp"
                     android:layout_weight="1"
                     android:background="#021E4F"
                     android:text="금일 강수량"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     tools:textStyle="bold"
-                    android:padding="15sp"
+                    android:padding="8sp"
                     android:typeface="monospace"/>
 
             </LinearLayout>
@@ -125,9 +135,9 @@
             android:layout_weight="1"
             android:background="#021E4F"
             android:gravity="center_horizontal"
-            android:padding="15sp"
+            android:padding="8sp"
             android:text="날씨가 좋으니 나가 노는게 좋겠소만.."
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:typeface="monospace"
@@ -159,7 +169,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -180,7 +190,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -194,7 +204,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
         </LinearLayout>
@@ -219,7 +229,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -240,7 +250,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -250,13 +260,13 @@
                 android:layout_height="35dp"
                 android:layout_weight="1"
                 android:background="#021E4F"
+                android:gravity="center_horizontal"
+                android:padding="8sp"
                 android:text="내일 습도"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                tools:textStyle="bold"
-                android:padding="10sp"
                 android:typeface="monospace"
-                android:gravity="center_horizontal"/>
+                tools:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -279,7 +289,7 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -300,7 +310,7 @@
                 android:background="#021E4F"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -314,7 +324,7 @@
                 android:background="#021E4F"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
         </LinearLayout>
@@ -339,7 +349,7 @@
                 android:background="#021E4F"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -360,7 +370,7 @@
                 android:background="#021E4F"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
                 android:gravity="center_horizontal"/>
 
@@ -374,11 +384,30 @@
                 android:background="#021E4F"
                 android:textStyle="bold"
                 tools:textStyle="bold"
-                android:padding="10sp"
+                android:padding="8sp"
                 android:typeface="monospace"
-                android:gravity="center_horizontal"/>
+                android:gravity="center_horizontal"
+                />
+
         </LinearLayout>
 
     </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/calbutton"
+            android:layout_width="190sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:text="CHECK CALANDER"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="189dp"
+            tools:layout_editor_absoluteY="8dp" />
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>
