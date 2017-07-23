@@ -71,7 +71,7 @@
 
         <LinearLayout
             android:id="@+id/alarm"
-            android:layout_width="match_parent"
+            android:layout_width="98dp"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
@@ -92,7 +92,7 @@
         </LinearLayout>
 
         <Space
-            android:layout_width="185dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent" />
 
         <ImageButton
