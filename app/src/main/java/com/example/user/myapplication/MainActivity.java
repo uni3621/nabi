@@ -4,15 +4,10 @@ package com.example.user.myapplication;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
-
-
-import android.widget.TabHost;
-
-import com.example.user.myapplication.activity.WeatherActivity;
-
 import android.support.v7.widget.Toolbar;
 import android.widget.TabHost;
 
+import com.example.user.myapplication.activity.HomeActivity;
 import com.example.user.myapplication.activity.MyPageActivity;
 import com.example.user.myapplication.activity.SpendActivity;
 import com.example.user.myapplication.activity.TrafficActivity;
@@ -32,7 +27,7 @@ public class MainActivity extends ActivityGroup {
         maintabHost.setup(getLocalActivityManager());
 
         TabHost.TabSpec homeTab = maintabHost.newTabSpec("메인 화면");
-        homeTab.setContent(R.id.home_tab);
+        homeTab.setContent(new Intent(this, HomeActivity.class));
         homeTab.setIndicator("", getResources().getDrawable(R.drawable.home_icon));
         maintabHost.addTab(homeTab);
 
@@ -57,6 +52,7 @@ public class MainActivity extends ActivityGroup {
         mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
         maintabHost.addTab(mypageTab);
 
+        maintabHost.setCurrentTab(0);
         mainToolBar.setTitle("메인화면");
         maintabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
