@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.myapplication.activity.weathercalender">
+
+    <CalendarView
+        android:id="@+id/weathercal"
+        android:layout_width="368dp"
+        android:layout_height="551dp"
+        android:layout_marginTop="8dp"
+        android:minDate="04/01/2014"
+        android:maxDate="12/31/2020"
+        android:background="@android:color/background_light"
+        android:focusableInTouchMode="false"
+        android:focusedMonthDateColor="@color/nabiColor2"
+
+        android:unfocusedMonthDateColor="@color/nabiColor2"
+        android:selectedWeekBackgroundColor="#3685C9"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+</android.support.constraint.ConstraintLayout>
