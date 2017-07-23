@@ -1,6 +1,7 @@
 package com.example.user.myapplication.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -37,13 +38,9 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        TextView textTime = (TextView) findViewById(R.id.textTime);
+
         final Intent intent = new Intent(this, weathercalender.class);
 
-        //현재 시간 textView로 출력
-        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
-
-        textTime.setText(currentTime);
 
         //현재 위치 (도시명)
 
@@ -58,6 +55,16 @@ public class WeatherActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    protected void onResume(){
+        super.onResume();
+        //현재 시간 textView로 출력
+        TextView textTime = (TextView) findViewById(R.id.textTime);
+        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
+
+        textTime.setText(currentTime);
+
     }
 
 
