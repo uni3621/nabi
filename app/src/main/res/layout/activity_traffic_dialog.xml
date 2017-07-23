@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="328dp"
+    android:layout_height="204dp"
+    android:background="?attr/colorControlHighlight">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_margin="7dp"
+        android:background="#ffffff">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="95dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.12"
+                android:ems="10"
+                android:hint="정류소명/정류소id/버스번호"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="13sp" />
+
+            <Space
+                android:layout_width="18dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/search_icon"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/linearLayout3"
+            android:layout_alignStart="@+id/linearLayout3"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginTop="22dp"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout4">
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="출발지"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/location_icon"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="도착지"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/location_icon"
+                android:layout_gravity="center"/>
+
+            <Space
+                android:layout_width="7dp"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/search_icon"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="검색"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_toLeftOf="@+id/button2"
+            android:layout_toStartOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="7dp"
+            android:text="취소" />
+
+    </RelativeLayout>
+</LinearLayout>

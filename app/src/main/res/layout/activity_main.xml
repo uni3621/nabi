@@ -43,7 +43,7 @@
                     android:weightSum="1">
 
 
-
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/traffic_tab"
@@ -52,11 +52,8 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
-
-
                 </LinearLayout>
 
-  </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/weather_tab"

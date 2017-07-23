@@ -25,38 +25,39 @@ public class MainActivity extends ActivityGroup {
         context = this;
 
         final Toolbar mainToolBar = (Toolbar)findViewById(R.id.mainToolbar);
-        TabHost maintabHost = (TabHost)findViewById(R.id.mainTabHost);
-        maintabHost.setup(getLocalActivityManager());
+        TabHost mainTabHost = (TabHost)findViewById(R.id.mainTabHost);
+        mainTabHost.setup(getLocalActivityManager());
 
-        TabHost.TabSpec homeTab = maintabHost.newTabSpec("메인 화면");
+        TabHost.TabSpec homeTab = mainTabHost.newTabSpec("메인 화면");
         homeTab.setContent(new Intent(this, HomeActivity.class));
+
         homeTab.setIndicator("", getResources().getDrawable(R.drawable.home_icon));
-        maintabHost.addTab(homeTab);
+        mainTabHost.addTab(homeTab);
 
 
-        TabHost.TabSpec trafficTab = maintabHost.newTabSpec("교통");
+        TabHost.TabSpec trafficTab = mainTabHost.newTabSpec("교통");
         trafficTab.setContent(new Intent(this, TrafficActivity.class));
         trafficTab.setIndicator("", getResources().getDrawable(R.drawable.traffic_icon));
-        maintabHost.addTab(trafficTab);
+        mainTabHost.addTab(trafficTab);
 
-        TabHost.TabSpec weatherTab = maintabHost.newTabSpec("날씨");
+        TabHost.TabSpec weatherTab = mainTabHost.newTabSpec("날씨");
         weatherTab.setContent(new Intent(this, WeatherActivity.class));
         weatherTab.setIndicator("", getResources().getDrawable(R.drawable.weather_icon));
-        maintabHost.addTab(weatherTab);
+        mainTabHost.addTab(weatherTab);
 
-        TabHost.TabSpec spendingTab = maintabHost.newTabSpec("지출관리");
+        TabHost.TabSpec spendingTab = mainTabHost.newTabSpec("지출관리");
         spendingTab.setContent(new Intent(this, SpendActivity.class));
         spendingTab.setIndicator("", getResources().getDrawable(R.drawable.spending_icon));
-        maintabHost.addTab(spendingTab);
+        mainTabHost.addTab(spendingTab);
 
-        TabHost.TabSpec mypageTab = maintabHost.newTabSpec("마이페이지");
-        mypageTab.setContent(new Intent(this, MyPageActivity.class));
-        mypageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
-        maintabHost.addTab(mypageTab);
+        TabHost.TabSpec myPageTab = mainTabHost.newTabSpec("마이페이지");
+        myPageTab.setContent(new Intent(this, MyPageActivity.class));
+        myPageTab.setIndicator("", getResources().getDrawable(R.drawable.mypage_icon));
+        mainTabHost.addTab(myPageTab);
 
-        maintabHost.setCurrentTab(0);
+        mainTabHost.setCurrentTab(0);
         mainToolBar.setTitle("메인화면");
-        maintabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+        mainTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 mainToolBar.setTitle(tabId);
