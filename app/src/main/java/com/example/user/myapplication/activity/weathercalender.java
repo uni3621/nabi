@@ -21,7 +21,7 @@ public class weathercalender extends AppCompatActivity {
         weathercal.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             //선택된 날짜를 알려주는 메서드
             public void onSelectedDayChange(CalendarView view, int year, int month, int day){
-                Toast.makeText(weathercalender.this,year+"년 "+(month+1)+"월"+ day +"일",0).show();
+                Toast.makeText(weathercalender.this,year+"년 "+(month+1)+"월"+ day +"일",Toast.LENGTH_SHORT).show();
             }
         });
 
