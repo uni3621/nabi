@@ -73,7 +73,8 @@
             android:id="@+id/alarm"
             android:layout_width="98dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:onClick="alarm">
 
             <ImageView
                 android:id="@+id/imageView7"

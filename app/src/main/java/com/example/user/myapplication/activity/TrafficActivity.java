@@ -53,4 +53,14 @@ public class TrafficActivity extends ActivityGroup {
         dialog.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }
 
+    public void alarm(View i){
+        Dialog alarm = new TrafficDialogActivity(this);
+        alarm.show();
+
+        // Dialog 사이즈 조절 하기
+        WindowManager.LayoutParams params =alarm.getWindow().getAttributes();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        alarm.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+    }
+
 }
