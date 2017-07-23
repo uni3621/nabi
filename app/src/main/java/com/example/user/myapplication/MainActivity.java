@@ -2,6 +2,7 @@ package com.example.user.myapplication;
 
 
 import android.app.ActivityGroup;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,11 +17,12 @@ import com.example.user.myapplication.activity.WeatherActivity;
 
 
 public class MainActivity extends ActivityGroup {
-
+    public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = this;
 
         final Toolbar mainToolBar = (Toolbar)findViewById(R.id.mainToolbar);
         TabHost mainTabHost = (TabHost)findViewById(R.id.mainTabHost);

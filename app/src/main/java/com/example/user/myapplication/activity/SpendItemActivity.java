@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.user.myapplication.MainActivity;
 import com.example.user.myapplication.R;
 import com.example.user.myapplication.dialog.SpendingInputDialog;
 
@@ -20,7 +21,7 @@ public class SpendItemActivity extends AppCompatActivity{
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new SpendingInputDialog(SpendItemActivity.this);
+                Dialog dialog = new SpendingInputDialog(MainActivity.context);
                 dialog.show();
             }
         });
