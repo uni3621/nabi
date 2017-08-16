@@ -36,7 +36,7 @@ public class WeatherActivity extends AppCompatActivity {
         //현재 위치 (도시명)
 
 
-
+        
         //button 입력
         Button calButton = (Button)findViewById(R.id.calbutton);
         calButton.setOnClickListener(new View.OnClickListener() {
