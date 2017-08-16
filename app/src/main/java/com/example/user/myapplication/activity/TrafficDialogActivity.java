@@ -2,12 +2,9 @@ package com.example.user.myapplication.activity;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.user.myapplication.MainActivity;
 import com.example.user.myapplication.R;
 
 /**
@@ -31,10 +28,7 @@ public class TrafficDialogActivity extends Dialog  {
             @Override
 
             public void onClick(View v) {
-
-                //Intent i = new Intent(FirstrActivity.this, SecondActivity.class);
-                //startActivity(i);
-
+                TrafficDialogActivity.this.dismiss();
             }
 
         });
