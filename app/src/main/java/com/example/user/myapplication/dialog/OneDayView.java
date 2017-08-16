@@ -1,6 +1,4 @@
 package com.example.user.myapplication.dialog;
-import java.util.Calendar;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.user.myapplication.R;
+
+import java.util.Calendar;
 
 /**
  * Created by JiHoon on 2017-08-15.
@@ -61,7 +61,7 @@ public class OneDayView extends RelativeLayout{
     }
 
     public CharSequence getMsg(){ // 보여줄 메시지를 리턴시킴
-        return one.getMsg()
+        return one.getMsg();
     }
     /**
      * Returns the value of the given field after computing the field values by
@@ -91,10 +91,10 @@ public class OneDayView extends RelativeLayout{
         switch(one.weather){
             case CLOUDY:
             case SUN_CLOUND:
-                weatherIv.setImageResource(R.drawable.cloudy1);
+                weatherIv.setImageResource(R.drawable.cloudy);
                 break;
             case RAINNY:
-                weatherIv.setImageResource(R.drawable.rainy1);
+                weatherIv.setImageResource(R.drawable.rainy);
                 break;
             case SNOW:
                 weatherIv.setImageResource(R.drawable.snowy);

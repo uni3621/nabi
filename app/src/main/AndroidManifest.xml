@@ -23,7 +23,6 @@
         <activity android:name=".activity.TrafficActivity" />
         <activity android:name=".activity.WeatherActivity" />
         <activity android:name=".activity.MyPageActivity" />
-        <activity android:name=".activity.SpendItemActivity" />
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />

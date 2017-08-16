@@ -1,8 +1,8 @@
 package com.example.user.myapplication.dialog;
 
-import java.util.Calendar;
-
 import com.example.user.myapplication.dialog.MomusWeather.Weather;
+
+import java.util.Calendar;
 /**
  * Created by JiHoon on 2017-08-15.
  */
