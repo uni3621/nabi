@@ -32,6 +32,7 @@
             android:padding="20dp">
 
             <EditText
+                android:id="@+id/signEmail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="7dp"
@@ -42,49 +43,37 @@
                 android:padding="5dp" />
 
             <EditText
+                android:id="@+id/signPw"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="7dp"
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="비밀번호"
-                android:inputType="textPersonName" android:padding="5dp" />
+                android:inputType="textPersonName"
+                android:padding="5dp" />
 
             <EditText
+                android:id="@+id/signRePw"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="7dp"
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="비밀번호 확인"
-                android:inputType="textPersonName" android:padding="5dp" />
+                android:inputType="textPersonName"
+                android:padding="5dp" />
 
             <EditText
+                android:id="@+id/signName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="7dp"
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="닉네임"
-                android:inputType="textPersonName" android:padding="5dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/gray_background"
-                android:ems="10"
-                android:hint="주소"
-                android:inputType="textPersonName" android:padding="5dp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_margin="7dp"
-                android:background="@drawable/gray_background"
-                android:ems="10"
-                android:hint="상세 주소"
-                android:inputType="textPersonName" android:padding="5dp" />
+                android:inputType="textPersonName"
+                android:padding="5dp" />
 
 
         </LinearLayout>
@@ -99,7 +88,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/signOkBtn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="?attr/colorControlActivated"
