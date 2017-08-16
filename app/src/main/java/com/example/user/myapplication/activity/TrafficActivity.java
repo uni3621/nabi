@@ -54,7 +54,7 @@ public class TrafficActivity extends ActivityGroup {
     }
 
     public void alarm(View i){
-        Dialog alarm = new TrafficDialogActivity(this);
+        Dialog alarm = new TrafficDialogAlarmActivity(this);
         alarm.show();
 
         // Dialog 사이즈 조절 하기
