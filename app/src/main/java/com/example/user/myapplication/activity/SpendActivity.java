@@ -1,35 +1,36 @@
 package com.example.user.myapplication.activity;
 
 import android.app.ActivityGroup;
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TabHost;
+import android.widget.ListView;
 
 import com.example.user.myapplication.R;
+import com.example.user.myapplication.adapter.SpendListAdapter;
+import com.example.user.myapplication.item.SpendListItem;
 
 public class SpendActivity extends ActivityGroup {
-
+    ListView spendListView;
+    SpendListAdapter spendListAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spending);
+        setContentView(R.layout.activity_spend);
+        spendListView = (ListView)findViewById(R.id.spend_list_view);
+        spendListAdapter = new SpendListAdapter();
 
-        TabHost spendTabHost = (TabHost)findViewById(R.id.spendingTabHost);
-        spendTabHost.setup(getLocalActivityManager());
+        spendListView.setAdapter(spendListAdapter);
+        spendListAdapter.addItem("13", "2017.08", "일요일", 25710);
+        SpendListItem listItem = (SpendListItem)spendListAdapter.getItem(0);
 
-        TabHost.TabSpec dayTab = spendTabHost.newTabSpec("일별 지출");
-        dayTab.setContent(new Intent(this, SpendItemActivity.class));
-        dayTab.setIndicator("일별");
-        spendTabHost.addTab(dayTab);
 
-        TabHost.TabSpec weekTab= spendTabHost.newTabSpec("주별 지출");
-        weekTab.setContent(new Intent(this, SpendItemActivity.class));
-        weekTab.setIndicator("주별");
-        spendTabHost.addTab(weekTab);
+        ListView subListView = listItem.getListView();
+//        SpendSubListAdapter spendSubListAdapter = new SpendSubListAdapter();
+//        subListView.setAdapter(spendSubListAdapter);
+//        spendSubListAdapter.addItem("수원인계동", "닭갈비맛있게 먹었음", 19200);
 
-        TabHost.TabSpec monthTab = spendTabHost.newTabSpec("달별 지출");
-        monthTab.setContent(new Intent(this, SpendItemActivity.class));
-        monthTab.setIndicator("달별");
-        spendTabHost.addTab(monthTab);
+//        Log.i("정보", ((SpendListItem) spendListAdapter.getItem(0)).getListView().getAdapter().getCount() + "개");
+//        spendSubListAdapter.notifyDataSetChanged();;
+//        spendListAdapter.notifyDataSetChanged();
+
     }
 }

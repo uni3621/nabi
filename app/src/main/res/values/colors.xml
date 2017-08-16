@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#ffea8d</color>
     <color name="colorPrimaryDark">#003399</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="nabiColor">#003399</color>
-    <color name="nabiColor2">#021E4F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="nabiColor">#73C5FF</color>
+    <color name="nabiColor2">#C6E1F5</color>
 </resources>
