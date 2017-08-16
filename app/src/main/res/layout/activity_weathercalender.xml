@@ -11,14 +11,14 @@
         android:layout_width="368dp"
         android:layout_height="551dp"
         android:layout_marginTop="8dp"
-        android:minDate="04/01/2014"
-        android:maxDate="12/31/2020"
         android:background="@android:color/background_light"
         android:focusableInTouchMode="false"
         android:focusedMonthDateColor="@color/nabiColor2"
+        android:maxDate="12/31/2020"
+        android:minDate="04/01/2014"
 
-        android:unfocusedMonthDateColor="@color/nabiColor2"
         android:selectedWeekBackgroundColor="#3685C9"
+        android:unfocusedMonthDateColor="@color/nabiColor2"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp" />
