@@ -39,7 +39,7 @@
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="이메일"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:padding="5dp" />
 
             <EditText
@@ -50,7 +50,7 @@
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="비밀번호"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:padding="5dp" />
 
             <EditText
@@ -61,7 +61,7 @@
                 android:background="@drawable/gray_background"
                 android:ems="10"
                 android:hint="비밀번호 확인"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 android:padding="5dp" />
 
             <EditText
