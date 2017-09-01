@@ -3,13 +3,13 @@
     package="com.example.user.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<<<<<<< HEAD
+
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATEc"></uses-permission>
-=======
+
     <uses-permission android:name="android.permission.INTERNET" />
 
->>>>>>> efdcfc51b2ee90e90046488de5863f070672603a
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/nabi_icon_2"
