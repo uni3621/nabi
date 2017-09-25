@@ -6,6 +6,10 @@ package com.example.user.myapplication.item;
 
 import android.widget.ListView;
 
+import com.example.user.myapplication.dto.SpendDTO;
+
+import java.util.List;
+
 /**
  * 지출내역에서 월별 지출내역 리스트의 아이템
  */
@@ -15,6 +19,15 @@ public class SpendListItem {
     private String yoil; // 요일
     private int spending; // 지출 금액
     private ListView listView; // 하위 리스트뷰
+    private List<SpendDTO> spendList;
+
+    public List<SpendDTO> getSpendList() {
+        return spendList;
+    }
+
+    public void setSpendList(List<SpendDTO> spendList) {
+        this.spendList = spendList;
+    }
 
     public ListView getListView() {
         return listView;
