@@ -21,14 +21,35 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textTime"
-                    android:layout_width="55sp"
-                    android:layout_height="55sp"
+                    android:id="@+id/locationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#021E4F"
+                    android:background="@color/nabiColor2"
                     android:gravity="center_horizontal"
                     android:padding="8sp"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    tools:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/nabiColor2"
+                    android:gravity="center_horizontal"
+                    android:padding="8sp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:typeface="monospace"
                     tools:textStyle="bold" />
@@ -54,7 +75,7 @@
                         android:layout_width="188dp"
                         android:layout_height="172dp"
                         android:layout_alignParentTop="true"
-                        app:srcCompat="@drawable/cloud_selected" />
+                        app:srcCompat="@drawable/cloudy" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -69,7 +90,7 @@
                             android:background="@color/nabiColor2"
                             android:padding="8sp"
                             android:text="금일 강수량"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#000000"
                             android:textStyle="bold"
                             android:typeface="monospace"
                             tools:textStyle="bold" />
@@ -79,10 +100,10 @@
                             android:layout_width="190sp"
                             android:layout_height="45sp"
                             android:layout_weight="1"
-                            android:background="#021E4F"
+                            android:background="@color/nabiColor2"
                             android:padding="8sp"
                             android:text="금일 습도"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/nabiText"
                             android:textStyle="bold"
                             android:typeface="monospace"
                             tools:textStyle="bold" />
@@ -92,10 +113,10 @@
                             android:layout_width="190sp"
                             android:layout_height="45sp"
                             android:layout_weight="1"
-                            android:background="#021E4F"
+                            android:background="@color/nabiColor2"
                             android:padding="8sp"
                             android:text="금일 자외선 지수"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/nabiText"
                             android:textStyle="bold"
                             android:typeface="monospace"
                             tools:textStyle="bold" />
@@ -105,10 +126,10 @@
                             android:layout_width="190sp"
                             android:layout_height="45sp"
                             android:layout_weight="1"
-                            android:background="#021E4F"
+                            android:background="@color/nabiColor2"
                             android:padding="8sp"
                             android:text="금일 강수량"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/nabiText"
                             android:textStyle="bold"
                             android:typeface="monospace"
                             tools:textStyle="bold" />
@@ -131,11 +152,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="35sp"
                     android:layout_weight="1"
-                    android:background="#021E4F"
+                    android:background="#ffffff"
                     android:gravity="center_horizontal"
                     android:padding="8sp"
                     android:text="날씨가 좋으니 나가 노는게 좋겠소만.."
-                    android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:typeface="monospace"
@@ -162,11 +182,11 @@
                         android:layout_width="35sp"
                         android:layout_height="35sp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -175,18 +195,18 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/cloud_selected" />
+                        app:srcCompat="@drawable/cloudy" />
 
                     <TextView
                         android:id="@+id/textView21"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 기온"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -196,11 +216,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 습도"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -221,11 +241,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -235,18 +255,18 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/cloud_selected" />
+                        app:srcCompat="@drawable/cloudy" />
 
                     <TextView
                         android:id="@+id/textView13"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 기온"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -256,11 +276,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 습도"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -281,11 +301,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -295,18 +315,18 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/cloud_selected" />
+                        app:srcCompat="@drawable/cloudy" />
 
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 기온"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -316,11 +336,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 습도"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -341,11 +361,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -355,18 +375,18 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/cloud_selected" />
+                        app:srcCompat="@drawable/cloudy" />
 
                     <TextView
                         android:id="@+id/textView19"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 기온"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -376,11 +396,11 @@
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
-                        android:background="#021E4F"
+                        android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
                         android:text="내일 습도"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
@@ -400,7 +420,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/buttonshape"
                     android:text="CHECK CALANDER"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/nabiText"
                     android:textSize="18sp"
                     tools:layout_editor_absoluteX="189dp"
                     tools:layout_editor_absoluteY="33dp" />
