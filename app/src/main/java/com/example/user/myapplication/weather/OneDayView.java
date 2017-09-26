@@ -1,4 +1,4 @@
-package com.example.user.myapplication.dialog;
+package com.example.user.myapplication.weather;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -7,8 +7,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.user.myapplication.R;
-
+import com.example.user.myapplication.weather.MomusWeather;
 import java.util.Calendar;
+
+import static com.example.user.myapplication.weather.MomusWeather.*;
+import static com.example.user.myapplication.weather.MomusWeather.Weather.*;
 
 /**
  * Created by JiHoon on 2017-08-15.
@@ -48,8 +51,8 @@ public class OneDayView extends RelativeLayout{
         this.one.cal.set(year,month,day); // 년 , 달 ,일 정보 지정
     }
 
-    public void setDay(Calendar cal){
-        this.one.setDay((Calendar) cal.clone());
+    public void setDay(OneDayData cal){
+        //this.one.setDay((Calendar) cal.clone);
     }
 
     public  OneDayData getDay(){
@@ -81,7 +84,7 @@ public class OneDayView extends RelativeLayout{
         return one.get(field);
     }
 
-    public void setWeather(MomusWeather.Weather weather){
+    public void setWeather(Weather weather){
         this.one.setWeather(weather); // 날씨 정보 지정
     }
 

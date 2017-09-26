@@ -1,4 +1,4 @@
-package com.example.user.myapplication.dialog;
+package com.example.user.myapplication.weather;
 
 
 /**
@@ -7,7 +7,7 @@ package com.example.user.myapplication.dialog;
 
 public class MomusWeather {
 
-    public  static enum Weather {
+    public static enum Weather {
         SUNSHINE,
         SUN_CLOUND,
         CLOUDY,

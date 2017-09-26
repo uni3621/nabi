@@ -1,6 +1,5 @@
-package com.example.user.myapplication.activity;
+package com.example.user.myapplication.weather;
 
-import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -8,7 +7,7 @@ import android.widget.Toast;
 
 import com.example.user.myapplication.R;
 
-public class weathercalender extends AppCompatActivity {
+public class WeatherCalender extends AppCompatActivity {
 
 
     @Override
@@ -21,7 +20,7 @@ public class weathercalender extends AppCompatActivity {
         weathercal.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             //선택된 날짜를 알려주는 메서드
             public void onSelectedDayChange(CalendarView view, int year, int month, int day){
-                Toast.makeText(weathercalender.this,year+"년 "+(month+1)+"월"+ day +"일",Toast.LENGTH_SHORT).show();
+                Toast.makeText(WeatherCalender.this,year+"년 "+(month+1)+"월"+ day +"일",Toast.LENGTH_SHORT).show();
             }
         });
 

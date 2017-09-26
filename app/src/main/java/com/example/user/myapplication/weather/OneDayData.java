@@ -1,21 +1,19 @@
-package com.example.user.myapplication.dialog;
-
-import com.example.user.myapplication.dialog.MomusWeather.Weather;
+package com.example.user.myapplication.weather;
 
 import java.util.Calendar;
 /**
  * Created by JiHoon on 2017-08-15.
  */
 
-public class OneDayData {
+public class OneDayData {       //하루 소스를 담고있는 DATA
 
     Calendar cal;
-    Weather weather;
+    MomusWeather.Weather weather;
     private CharSequence msg = "";
 
     public OneDayData(){
         this.cal = Calendar.getInstance();
-        this.weather = Weather.SUNSHINE;
+        this.weather = MomusWeather.Weather.SUNSHINE;
     }
 
     public  void setDay(int year , int month , int day){
@@ -35,11 +33,11 @@ public class OneDayData {
         return cal.get(field);
     }
 
-    public void setWeather(Weather weather){ //날씨 정보를 지정
+    public void setWeather(MomusWeather.Weather weather){ //날씨 정보를 지정
         this.weather = weather;
     }
 
-    public Weather getWeather(){ //날씨 정보를 가져옴
+    public MomusWeather.Weather getWeather(){ //날씨 정보를 가져옴
         return this.weather;
     }
 
