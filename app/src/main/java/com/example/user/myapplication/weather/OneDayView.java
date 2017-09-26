@@ -52,7 +52,7 @@ public class OneDayView extends RelativeLayout{
     }
 
     public void setDay(OneDayData cal){
-        this.one.setDay((Calendar) cal.clone());
+        //this.one.setDay((Calendar) cal.clone);
     }
 
     public  OneDayData getDay(){

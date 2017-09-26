@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
-    android:layout_height="200dp"
+    android:layout_height="350dp"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp">
@@ -15,8 +15,47 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/spendMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8월"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/spendDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/spendTime"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/gray_background"
+        android:ems="10"
+        android:hint="시간"
+        android:inputType="datetime"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/spendLoc"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/gray_background"
@@ -26,7 +65,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/spendMoney"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/gray_background"
@@ -42,7 +81,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/spendOk"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="입력" />

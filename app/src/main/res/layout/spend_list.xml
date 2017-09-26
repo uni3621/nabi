@@ -61,5 +61,8 @@
     <ListView
         android:id="@+id/spend_list_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:elevation="1dp"
+        android:listSelector="@color/colorAccent" />
 </LinearLayout>
