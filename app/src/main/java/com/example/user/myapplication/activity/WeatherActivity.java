@@ -33,7 +33,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.myapplication.R;
+import com.example.user.myapplication.util.Constants;
 import com.example.user.myapplication.weather.WeatherCalender;
+import com.example.user.myapplication.weather.LatXLngY;
 
 
 import org.w3c.dom.Document;
@@ -59,15 +61,15 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Element;
 
 public class WeatherActivity extends AppCompatActivity  implements LocationListener {
+    LinearLayout weatherLayout;
    // private WeatherActivity weatherActivity;
    // private final Context mContext;
     Calendar oCalendar = Calendar.getInstance(); //현재 날짜등 정보들 저장
     public int num = oCalendar.get(Calendar.DAY_OF_WEEK)-1;
-    public String[] week = { "일요일" , "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"};
 
     boolean isGetLocation = false;
-    public static int TO_GRID = 0;
-    public static int TO_GPS = 1;
+    public static final int TO_GRID = 0;
+    public static final int TO_GPS = 1;
     //위치 관련
     LocationManager locationManager;
     Location location ;
@@ -93,6 +95,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         public TextView seq0Temp;
         public ImageView seq0IV;
 
+        TextView[] dayTv;
+        ImageView[] dayIv;
+        TextView[] dayTmx;
+        TextView[] dayTmn;
         //중기 예보
         TextView firstDayTv;
         ImageView firstDayIv;
@@ -293,9 +299,80 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     nameList = nameElement.getChildNodes();
                     weatherThree[i][3] = nameList.item(0).getNodeValue();
 
+
+                for (int k = 0; k < 15; k++) {//동네예보 종결자 대입
+
+                    ll = new LinearLayout(WeatherActivity.this);
+                    seq0Time = new TextView(WeatherActivity.this);
+                    seq0Temp = new TextView(WeatherActivity.this);
+                    seq0IV = new ImageView(WeatherActivity.this);
+                    //style 들
+                    seq0IV.setLayoutParams(new LinearLayout.LayoutParams(125,125));
+                    seq0Time.setGravity(Gravity.LEFT);
+                    seq0Time.setTextSize(10);
+                    seq0Temp.setGravity(Gravity.CENTER_HORIZONTAL);
+                    seq0Time.setTextColor(0xFF000000);
+                    seq0Temp.setTextColor(0xFF000000);
+                    ll.setOrientation(LinearLayout.VERTICAL);
+                    ll.setPadding(40,10,40,10);
+
+                    switch (weatherThree[i][0]){//금일 or 내일 or 모레
+                        case "0" : seq0Time.setText(""); break;
+                        case "1" : seq0Time.setText(""); break;
+                        case "2" : seq0Time.setText(""); break;
+                        default: seq0Time.setText("");break;
+                    }
+                    switch (weatherThree[i][1]){// 시간
+                        case "24" : seq0Time.append("오전 0시" );; break;
+                        case "3" : seq0Time.append("오전 3시"); break;
+                        case "6" : seq0Time.append("오전 6시"); break;
+                        case "9" : seq0Time.append("오전 9시");; break;
+                        case "12" : seq0Time.append("오후 12시"); break;
+                        case "15" : seq0Time.append("오후 3시"); break;
+                        case "18" : seq0Time.append("오후 6시");; break;
+                        case "21" : seq0Time.append("오후 9시"); break;
+                        default: seq0Time.setText("에러욤");break;
+                    }
+
+
+                    seq0Temp.setText(weatherThree[i][2]+"℃");
+
+                    switch (weatherThree[i][3]){ //한국어 날씨를 가지고 비교
+                        case "맑음":
+                            seq0IV.setImageResource(R.drawable.sunny);
+                            break;
+                        case "구름 조금":
+                            seq0IV.setImageResource(R.drawable.partialy_cloudy);
+                            break;
+                        case "구름 많음":
+                            seq0IV.setImageResource(R.drawable.cloudy_day);
+                            break;
+                        case "흐림":
+                            seq0IV.setImageResource(R.drawable.cloudy);
+                            break;
+                        case "비":
+                            seq0IV.setImageResource(R.drawable.rainy);
+                            break;
+                        case "눈/비":
+                            seq0IV.setImageResource(R.drawable.sleet);
+                            break;
+                        case "눈":
+                            seq0IV.setImageResource(R.drawable.snowy);
+                            break;
+                        default:
+                            seq0IV.setImageResource(R.mipmap.error);
+                            break;
+                    }
+
+                    ll.addView(seq0Time);
+                    ll.addView(seq0IV);
+                    ll.addView(seq0Temp);
+                    weatherLayout.addView(ll);
+                }
+
                     if(weatherThree[i][0].equals("1")&&weatherThree[i][1].equals("12")){
-                        firstDayTv = (TextView)findViewById(R.id.firstDayTv);
-                        firstDayTv.setText(week[(num+1)%7]);
+                        dayTv[0] = (TextView)findViewById(R.id.firstDayTv);
+                        dayTv[0].setText(Constants.yoil[(num+1)%7]);
                         nameList = fstElmnt.getElementsByTagName("tmx");
                         firstDayTmx = (TextView)findViewById(R.id.firstDayTmx);
                         firstDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -331,10 +408,11 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                                 break;
                         }
 
+
                     }
                     else if(weatherThree[i][0].equals("2")&&weatherThree[i][1].equals("12")){
                         secondDayTv = (TextView)findViewById(R.id.secondDayTv);
-                        secondDayTv.setText(week[(num+2)%7]);
+                        secondDayTv.setText(Constants.yoil[(num+2)%7]);
                         nameList = fstElmnt.getElementsByTagName("tmx");
                         secondDayTmx = (TextView)findViewById(R.id.secondDayTmx);
                         secondDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -426,7 +504,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         Element fstElmntd = (Element) noded;
                         if(j==1) {
                             thirdDayTv = (TextView) findViewById(R.id.thirdDayTv);
-                            thirdDayTv.setText(week[(num + 3) % 7]);
+                            thirdDayTv.setText(Constants.yoil[(num + 3) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             thirdDayTmx = (TextView) findViewById(R.id.thirdDayTmx);
                             thirdDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -488,7 +566,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         }
                         if(j==3) {
                             forthDayTv = (TextView) findViewById(R.id.forthDayTv);
-                            forthDayTv.setText(week[(num + 4) % 7]);
+                            forthDayTv.setText(Constants.yoil[(num + 4) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             forthDayTmx = (TextView) findViewById(R.id.forthDayTmx);
                             forthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -550,7 +628,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         }
                         if(j==5) {
                             fifthDayTv = (TextView) findViewById(R.id.fifthDayTv);
-                            fifthDayTv.setText(week[(num + 5) % 7]);
+                            fifthDayTv.setText(Constants.yoil[(num + 5) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             fifthDayTmx = (TextView) findViewById(R.id.fifthDayTmx);
                             fifthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -612,7 +690,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         }
                         if(j==7) {
                             sixthDayTv = (TextView) findViewById(R.id.sixthDayTv);
-                            sixthDayTv.setText(week[(num + 6) % 7]);
+                            sixthDayTv.setText(Constants.yoil[(num + 6) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             sixthDayTmx = (TextView) findViewById(R.id.sixthDayTmx);
                             sixthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -674,7 +752,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         }
                         if(j==9) {
                             seventhDayTv = (TextView) findViewById(R.id.seventhDayTv);
-                            seventhDayTv.setText(week[(num + 7) % 7]);
+                            seventhDayTv.setText(Constants.yoil[(num + 7) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             seventhDayTmx = (TextView) findViewById(R.id.seventhDayTmx);
                             seventhDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -788,7 +866,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
             Log.v("Location", providers.next());
         }
 
-
+        weatherLayout = (LinearLayout) findViewById(R.id.weatherLayout);
         Criteria criteria = new Criteria();//원하는 프로바이더의 조건을 설정하는 클래스
 
         criteria.setAccuracy(Criteria.NO_REQUIREMENT);//정확도를 설정
@@ -817,7 +895,8 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
     protected void onStart(){
         super.onStart();
         WeatherTask task = new WeatherTask();
-        LatXLngY latXLngY = convertGRID_GPS(TO_GRID, lat , lon);
+        com.example.user.myapplication.weather.LatXLngY convert = new com.example.user.myapplication.weather.LatXLngY();
+        LatXLngY latXLngY  =  com.example.user.myapplication.weather.LatXLngY.convertGRID_GPS(TO_GRID, lat , lon);
         Toast.makeText(getApplicationContext(), lat+" , " +lon, Toast.LENGTH_LONG).show();
         task.execute("http://www.kma.go.kr/wid/queryDFS.jsp?gridx="+(int)latXLngY.x+"&gridy="+(int)latXLngY.y+"");
 
@@ -846,78 +925,8 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
     protected void onPause(){
         super.onPause();
-        LinearLayout weatherLayout = (LinearLayout) findViewById(R.id.weatherLayout);
-        for (int i = 0; i < 15; i++) {//동네예보 종결자 대입
 
-            ll = new LinearLayout(this);
-            seq0Time = new TextView(this);
-            seq0Temp = new TextView(this);
-            seq0IV = new ImageView(this);
-            //style 들
-            seq0IV.setLayoutParams(new LinearLayout.LayoutParams(125,125));
-            seq0Time.setGravity(Gravity.LEFT);
-            seq0Time.setTextSize(10);
-            seq0Temp.setGravity(Gravity.CENTER_HORIZONTAL);
-            seq0Time.setTextColor(0xFF000000);
-            seq0Temp.setTextColor(0xFF000000);
-            ll.setOrientation(LinearLayout.VERTICAL);
-            ll.setPadding(40,10,40,10);
-
-            switch (weatherThree[i][0]){//금일 or 내일 or 모레
-                case "0" : seq0Time.setText(""); break;
-                case "1" : seq0Time.setText(""); break;
-                case "2" : seq0Time.setText(""); break;
-                default: seq0Time.setText("");break;
-            }
-            switch (weatherThree[i][1]){// 시간
-                case "24" : seq0Time.append("오전 0시" );; break;
-                case "3" : seq0Time.append("오전 3시"); break;
-                case "6" : seq0Time.append("오전 6시"); break;
-                case "9" : seq0Time.append("오전 9시");; break;
-                case "12" : seq0Time.append("오후 12시"); break;
-                case "15" : seq0Time.append("오후 3시"); break;
-                case "18" : seq0Time.append("오후 6시");; break;
-                case "21" : seq0Time.append("오후 9시"); break;
-                default: seq0Time.setText("에러욤");break;
-            }
-
-
-            seq0Temp.setText(weatherThree[i][2]+"℃");
-
-           switch (weatherThree[i][3]){ //한국어 날씨를 가지고 비교
-                case "맑음":
-                    seq0IV.setImageResource(R.drawable.sunny);
-                    break;
-                case "구름 조금":
-                    seq0IV.setImageResource(R.drawable.partialy_cloudy);
-                    break;
-                case "구름 많음":
-                    seq0IV.setImageResource(R.drawable.cloudy_day);
-                    break;
-                case "흐림":
-                    seq0IV.setImageResource(R.drawable.cloudy);
-                    break;
-                case "비":
-                    seq0IV.setImageResource(R.drawable.rainy);
-                    break;
-                case "눈/비":
-                    seq0IV.setImageResource(R.drawable.sleet);
-                    break;
-                case "눈":
-                    seq0IV.setImageResource(R.drawable.snowy);
-                    break;
-                default:
-                    seq0IV.setImageResource(R.mipmap.error);
-                    break;
-            }
-
-            ll.addView(seq0Time);
-            ll.addView(seq0IV);
-            ll.addView(seq0Temp);
-            weatherLayout.addView(ll);
-        }
     }
-
 
     public void search(Location location){
         Geocoder coder = new Geocoder(this, Locale.KOREA);
@@ -972,87 +981,11 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
     }
 
-    //위경도 > 격자 변환
-    private LatXLngY convertGRID_GPS(int mode, double lat_X, double lng_Y )
-    {
-        double RE = 6371.00877; // 지구 반경(km)
-        double GRID = 5.0; // 격자 간격(km)
-        double SLAT1 = 30.0; // 투영 위도1(degree)
-        double SLAT2 = 60.0; // 투영 위도2(degree)
-        double OLON = 126.0; // 기준점 경도(degree)
-        double OLAT = 38.0; // 기준점 위도(degree)
-        double XO = 43; // 기준점 X좌표(GRID)
-        double YO = 136; // 기1준점 Y좌표(GRID)
-
-        //
-        // LCC DFS 좌표변환 ( code : "TO_GRID"(위경도->좌표, lat_X:위도,  lng_Y:경도), "TO_GPS"(좌표->위경도,  lat_X:x, lng_Y:y) )
-        //
-
-
-        double DEGRAD = Math.PI / 180.0;
-        double RADDEG = 180.0 / Math.PI;
-
-        double re = RE / GRID;
-        double slat1 = SLAT1 * DEGRAD;
-        double slat2 = SLAT2 * DEGRAD;
-        double olon = OLON * DEGRAD;
-        double olat = OLAT * DEGRAD;
-
-        double sn = Math.tan(Math.PI * 0.25 + slat2 * 0.5) / Math.tan(Math.PI * 0.25 + slat1 * 0.5);
-        sn = Math.log(Math.cos(slat1) / Math.cos(slat2)) / Math.log(sn);
-        double sf = Math.tan(Math.PI * 0.25 + slat1 * 0.5);
-        sf = Math.pow(sf, sn) * Math.cos(slat1) / sn;
-        double ro = Math.tan(Math.PI * 0.25 + olat * 0.5);
-        ro = re * sf / Math.pow(ro, sn);
-        LatXLngY rs = new LatXLngY();
-
-        if (mode == TO_GRID) {
-            rs.lat = lat_X;
-            rs.lng = lng_Y;
-            double ra = Math.tan(Math.PI * 0.25 + (lat_X) * DEGRAD * 0.5);
-            ra = re * sf / Math.pow(ra, sn);
-            double theta = lng_Y * DEGRAD - olon;
-            if (theta > Math.PI) theta -= 2.0 * Math.PI;
-            if (theta < -Math.PI) theta += 2.0 * Math.PI;
-            theta *= sn;
-            rs.x = Math.floor(ra * Math.sin(theta) + XO + 0.5);
-            rs.y = Math.floor(ro - ra * Math.cos(theta) + YO + 0.5);
-        }
-        else {
-            rs.x = lat_X;
-            rs.y = lng_Y;
-            double xn = lat_X - XO;
-            double yn = ro - lng_Y + YO;
-            double ra = Math.sqrt(xn * xn + yn * yn);
-            if (sn < 0.0) {
-                ra = -ra;
-            }
-            double alat = Math.pow((re * sf / ra), (1.0 / sn));
-            alat = 2.0 * Math.atan(alat) - Math.PI * 0.5;
-
-            double theta = 0.0;
-            if (Math.abs(xn) <= 0.0) {
-                theta = 0.0;
-            }
-            else {
-                if (Math.abs(yn) <= 0.0) {
-                    theta = Math.PI * 0.5;
-                    if (xn < 0.0) {
-                        theta = -theta;
-                    }
-                }
-                else theta = Math.atan2(xn, yn);
-            }
-            double alon = theta / sn + olon;
-            rs.lat = alat * RADDEG;
-            rs.lng = alon * RADDEG;
-        }
-        return rs;
-    }
 
 
 
-    class LatXLngY
+
+    public static class LatXLngY
     {
         public double lat;
         public double lng;
