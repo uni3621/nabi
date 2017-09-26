@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.user.myapplication.MainActivity;
 import com.example.user.myapplication.R;
+import com.example.user.myapplication.api.APIRequest;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn, signBtn;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, SignActivity.class));
             }
         });
+        APIRequest.setAppKey("c40ca683-6457-3da6-81df-e529f3449151");
     }
 
     @Override
