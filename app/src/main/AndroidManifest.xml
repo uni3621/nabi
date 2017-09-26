@@ -3,12 +3,9 @@
     package="com.example.user.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATEc"></uses-permission>
-
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATEc" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,14 +24,23 @@
         </activity>
         <activity android:name=".activity.SpendActivity" />
         <activity android:name=".activity.TrafficActivity" />
+
+        <activity android:name=".activity.WeatherActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.SearchTrafficActivity"/>
-        <activity android:name=".activity.WeatherActivity" />
+
         <activity android:name=".activity.MyPageActivity" />
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.SignActivity"></activity>
-        <activity android:name=".activity.weathercalender" />
+        <activity android:name=".activity.SignActivity" />
+        <activity android:name=".weather.WeatherCalender" />
+
+
     </application>
 
 </manifest>
