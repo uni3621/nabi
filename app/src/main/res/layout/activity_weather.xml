@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/nabiColor2"
+                    android:background="#ffffff"
                     android:gravity="center_horizontal"
                     android:padding="8sp"
                     android:textColor="#000000"
@@ -45,7 +45,7 @@
                     android:id="@+id/textTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/nabiColor2"
+                    android:background="#ffffff"
                     android:gravity="center_horizontal"
                     android:padding="8sp"
                     android:textColor="#000000"
@@ -67,11 +67,12 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:background="#ffffff"
                     android:orientation="horizontal"
                     android:weightSum="1">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/todayWI"
                         android:layout_width="188dp"
                         android:layout_height="172dp"
                         android:layout_alignParentTop="true"
@@ -82,63 +83,192 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="190sp"
-                            android:layout_height="45sp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/nabiColor2"
-                            android:padding="8sp"
-                            android:text="금일 강수량"
-                            android:textColor="#000000"
-                            android:textStyle="bold"
-                            android:typeface="monospace"
-                            tools:textStyle="bold" />
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="190sp"
-                            android:layout_height="45sp"
-                            android:layout_weight="1"
-                            android:background="@color/nabiColor2"
-                            android:padding="8sp"
-                            android:text="금일 습도"
-                            android:textColor="@color/nabiText"
-                            android:textStyle="bold"
-                            android:typeface="monospace"
-                            tools:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:text="온도 "
+                                android:textColor="#000000"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="190sp"
-                            android:layout_height="45sp"
-                            android:layout_weight="1"
-                            android:background="@color/nabiColor2"
-                            android:padding="8sp"
-                            android:text="금일 자외선 지수"
-                            android:textColor="@color/nabiText"
-                            android:textStyle="bold"
-                            android:typeface="monospace"
-                            tools:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/todayTemp"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:textColor="#000000"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="190sp"
-                            android:layout_height="45sp"
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@color/nabiColor2"
-                            android:padding="8sp"
-                            android:text="금일 강수량"
-                            android:textColor="@color/nabiText"
-                            android:textStyle="bold"
-                            android:typeface="monospace"
-                            tools:textStyle="bold" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:text="습도 "
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/todayReh"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:text="풍속 "
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/todayWs"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:text="강수량 "
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/todayRain"
+                                android:layout_width="190sp"
+                                android:layout_height="45sp"
+                                android:layout_weight="1"
+                                android:background="#ffffff"
+                                android:padding="8sp"
+                                android:textColor="@color/nabiText"
+                                android:textStyle="bold"
+                                android:typeface="monospace"
+                                tools:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/nabiColor2"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:text="예보"
+                    android:textColor="@color/nabiText"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF8E8E8E"
+                android:orientation="horizontal"
+                android:padding="1dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/nabiColor2"
+                android:orientation="horizontal">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/nabiColor2"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:id="@+id/weatherLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/nabiColor2"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,7 +298,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/rainism"
+                    android:id="@+id/firstDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dip"
@@ -178,27 +308,27 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView20"
+                        android:id="@+id/firstDayTv"
                         android:layout_width="35sp"
                         android:layout_height="35sp"
                         android:layout_weight="1"
                         android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
-                        android:text="내일"
                         android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
 
                     <ImageView
+                        android:id="@+id/firstDayIv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cloudy" />
 
                     <TextView
-                        android:id="@+id/textView21"
+                        android:id="@+id/firstDayTmx"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -212,7 +342,7 @@
                         tools:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView22"
+                        android:id="@+id/firstDayTmn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -227,7 +357,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/weatherto1"
+                    android:id="@+id/secondDay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dip"
@@ -237,28 +367,27 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/secondDayTv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         android:background="@color/nabiColor2"
                         android:gravity="center_horizontal"
                         android:padding="8sp"
-                        android:text="내일"
                         android:textColor="@color/nabiText"
                         android:textStyle="bold"
                         android:typeface="monospace"
                         tools:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/secondDayIv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cloudy" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/secondDayTmx"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -272,7 +401,7 @@
                         tools:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/secondDayTmn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -287,7 +416,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/weatherto2"
+                    android:id="@+id/thirdDay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dip"
@@ -297,7 +426,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView15"
+                        android:id="@+id/thirdDayTv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -311,14 +440,14 @@
                         tools:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imageView5"
+                        android:id="@+id/thirdDayIv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cloudy" />
 
                     <TextView
-                        android:id="@+id/textView16"
+                        android:id="@+id/thirdDayTmx"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -332,7 +461,7 @@
                         tools:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/thirdDayTmn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -347,7 +476,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/weatherto3"
+                    android:id="@+id/forthDay"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="10dip"
@@ -357,7 +486,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/forthDayTv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -371,14 +500,14 @@
                         tools:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/forthDayIv"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cloudy" />
 
                     <TextView
-                        android:id="@+id/textView19"
+                        android:id="@+id/forthDayTmx"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -392,7 +521,7 @@
                         tools:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView26"
+                        android:id="@+id/forthDayTmn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_weight="1"
@@ -407,6 +536,203 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/fifthDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/fifthDayTv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/fifthDayIv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/cloudy" />
+
+                    <TextView
+                        android:id="@+id/fifthDayTmx"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 기온"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/fifthDayTmn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 습도"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sixthDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/sixthDayTv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/sixthDayIv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/cloudy" />
+
+                    <TextView
+                        android:id="@+id/sixthDayTmx"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 기온"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sixthDayTmn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 습도"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/seventhDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dip"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/seventhDayTv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/seventhDayIv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/cloudy" />
+
+                    <TextView
+                        android:id="@+id/seventhDayTmx"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 기온"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/seventhDayTmn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@color/nabiColor2"
+                        android:gravity="center_horizontal"
+                        android:padding="8sp"
+                        android:text="내일 습도"
+                        android:textColor="@color/nabiText"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        tools:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/parseWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <android.support.constraint.ConstraintLayout
