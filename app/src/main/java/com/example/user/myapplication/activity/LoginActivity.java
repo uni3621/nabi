@@ -5,25 +5,44 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.user.myapplication.MainActivity;
 import com.example.user.myapplication.R;
-import com.example.user.myapplication.api.APIRequest;
+import com.example.user.myapplication.network.LoginTask;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn, signBtn;
+    EditText loginId, loginPw;
+    String email, password;
     public static boolean signState = true;
+    public static ProgressBar loginProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginBtn = (Button)findViewById(R.id.loginBtn);
         signBtn = (Button)findViewById(R.id.signBtn);
+        loginId = (EditText)findViewById(R.id.loginId);
+        loginPw = (EditText)findViewById(R.id.loginPw);
+        loginProgress = (ProgressBar)findViewById(R.id.loginProgress);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                if(checkValid()) {
+                    LoginActivity.loginProgress.bringToFront();
+                    LoginActivity.loginProgress.setVisibility(View.VISIBLE);
+                    Map<String, String> params = new HashMap<>();
+                    params.put("email", email);
+                    params.put("password", password);
+                    LoginTask loginTask = new LoginTask(LoginActivity.this, params);
+
+                    loginTask.execute(params);
+                }
             }
         });
         signBtn.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, SignActivity.class));
             }
         });
-        APIRequest.setAppKey("c40ca683-6457-3da6-81df-e529f3449151");
     }
 
     @Override
@@ -46,5 +64,25 @@ public class LoginActivity extends AppCompatActivity {
                 signState = false;
             }
         }
+    }
+
+    /**
+     * 로그인 유효성 검사
+     * @return
+     */
+    private boolean checkValid(){
+        email =  loginId.getText().toString();
+        password = loginPw.getText().toString();
+        if(email == null || email.trim().equals("")){
+            Toast.makeText(this, "이메일을 입력하세요", Toast.LENGTH_SHORT).show();
+            loginId.requestFocus();
+            return false;
+        }
+        if(password == null || password.trim().equals("")){
+            Toast.makeText(this, "비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+            loginPw.requestFocus();
+            return false;
+        }
+        return true;
     }
 }

@@ -1,20 +1,16 @@
 package com.example.user.myapplication.activity;
 
-import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TabHost;
-import android.widget.Toast;
 
 import com.example.user.myapplication.R;
+import com.example.user.myapplication.dialog.TrafficDialog;
 
 /**
  * Created by user on 2017-07-19.
@@ -44,7 +40,7 @@ public class TrafficActivity extends ActivityGroup {
     }
 
     public void searchList(View v) {
-        Dialog dialog = new TrafficDialogActivity(this);
+        Dialog dialog = new TrafficDialog(this);
         dialog.show();
 
         // Dialog 사이즈 조절 하기

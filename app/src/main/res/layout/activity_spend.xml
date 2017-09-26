@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.user.myapplication.activity.SpendActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/spendFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/addblack" />
+
+    <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.user.myapplication.activity.SpendActivity"
+
         android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +33,7 @@
         android:layout_marginBottom="10dp">
 
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/spendLeft"
             android:layout_width="35dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
@@ -33,15 +50,39 @@
             android:layout_weight="1"/>
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/spendRight"
             android:layout_width="35dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:src="@drawable/rightbtn" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/spend_list_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/spendGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="지출 달성도" />
+
+        <ProgressBar
+            android:id="@+id/spendGoalBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar_custom" />
     </LinearLayout>
+
+        <ListView
+            android:id="@+id/spend_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

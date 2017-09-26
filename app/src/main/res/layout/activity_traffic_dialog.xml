@@ -28,7 +28,7 @@
                 android:layout_height="match_parent" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/trafficEditText"
                 android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.12"
@@ -107,13 +107,13 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/trafficSerachBtn"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="검색"
             android:layout_alignBottom="@+id/button2"
             android:layout_toLeftOf="@+id/button2"
-            android:layout_toStartOf="@+id/button2" />
+            android:layout_toStartOf="@+id/button2"
+            android:text="검색" />
 
         <Button
             android:id="@+id/button2"
