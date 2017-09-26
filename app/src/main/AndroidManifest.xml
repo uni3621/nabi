@@ -32,7 +32,6 @@
         </activity>
 
         <activity android:name=".activity.SearchTrafficActivity"/>
-
         <activity android:name=".activity.MyPageActivity" />
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />

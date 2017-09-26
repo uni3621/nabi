@@ -300,79 +300,11 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     weatherThree[i][3] = nameList.item(0).getNodeValue();
 
 
-                for (int k = 0; k < 15; k++) {//동네예보 종결자 대입
 
-                    ll = new LinearLayout(WeatherActivity.this);
-                    seq0Time = new TextView(WeatherActivity.this);
-                    seq0Temp = new TextView(WeatherActivity.this);
-                    seq0IV = new ImageView(WeatherActivity.this);
-                    //style 들
-                    seq0IV.setLayoutParams(new LinearLayout.LayoutParams(125,125));
-                    seq0Time.setGravity(Gravity.LEFT);
-                    seq0Time.setTextSize(10);
-                    seq0Temp.setGravity(Gravity.CENTER_HORIZONTAL);
-                    seq0Time.setTextColor(0xFF000000);
-                    seq0Temp.setTextColor(0xFF000000);
-                    ll.setOrientation(LinearLayout.VERTICAL);
-                    ll.setPadding(40,10,40,10);
-
-                    switch (weatherThree[i][0]){//금일 or 내일 or 모레
-                        case "0" : seq0Time.setText(""); break;
-                        case "1" : seq0Time.setText(""); break;
-                        case "2" : seq0Time.setText(""); break;
-                        default: seq0Time.setText("");break;
-                    }
-                    switch (weatherThree[i][1]){// 시간
-                        case "24" : seq0Time.append("오전 0시" );; break;
-                        case "3" : seq0Time.append("오전 3시"); break;
-                        case "6" : seq0Time.append("오전 6시"); break;
-                        case "9" : seq0Time.append("오전 9시");; break;
-                        case "12" : seq0Time.append("오후 12시"); break;
-                        case "15" : seq0Time.append("오후 3시"); break;
-                        case "18" : seq0Time.append("오후 6시");; break;
-                        case "21" : seq0Time.append("오후 9시"); break;
-                        default: seq0Time.setText("에러욤");break;
-                    }
-
-
-                    seq0Temp.setText(weatherThree[i][2]+"℃");
-
-                    switch (weatherThree[i][3]){ //한국어 날씨를 가지고 비교
-                        case "맑음":
-                            seq0IV.setImageResource(R.drawable.sunny);
-                            break;
-                        case "구름 조금":
-                            seq0IV.setImageResource(R.drawable.partialy_cloudy);
-                            break;
-                        case "구름 많음":
-                            seq0IV.setImageResource(R.drawable.cloudy_day);
-                            break;
-                        case "흐림":
-                            seq0IV.setImageResource(R.drawable.cloudy);
-                            break;
-                        case "비":
-                            seq0IV.setImageResource(R.drawable.rainy);
-                            break;
-                        case "눈/비":
-                            seq0IV.setImageResource(R.drawable.sleet);
-                            break;
-                        case "눈":
-                            seq0IV.setImageResource(R.drawable.snowy);
-                            break;
-                        default:
-                            seq0IV.setImageResource(R.mipmap.error);
-                            break;
-                    }
-
-                    ll.addView(seq0Time);
-                    ll.addView(seq0IV);
-                    ll.addView(seq0Temp);
-                    weatherLayout.addView(ll);
-                }
 
                     if(weatherThree[i][0].equals("1")&&weatherThree[i][1].equals("12")){
-                        dayTv[0] = (TextView)findViewById(R.id.firstDayTv);
-                        dayTv[0].setText(Constants.yoil[(num+1)%7]);
+                        firstDayTv = (TextView)findViewById(R.id.firstDayTv);
+                        firstDayTv.setText(Constants.yoil[(num+1)%7]);
                         nameList = fstElmnt.getElementsByTagName("tmx");
                         firstDayTmx = (TextView)findViewById(R.id.firstDayTmx);
                         firstDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
@@ -450,6 +382,78 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
                     }
 
+
+
+
+            }
+
+            for (int k = 0; k < 15; k++) {      //동네예보 종결자 대입
+                ll = new LinearLayout(WeatherActivity.this);
+                seq0Time = new TextView(WeatherActivity.this);
+                seq0Temp = new TextView(WeatherActivity.this);
+                seq0IV = new ImageView(WeatherActivity.this);
+                //style 들
+                seq0IV.setLayoutParams(new LinearLayout.LayoutParams(125,125));
+                seq0Time.setGravity(Gravity.LEFT);
+                seq0Time.setTextSize(10);
+                seq0Temp.setGravity(Gravity.CENTER_HORIZONTAL);
+                seq0Time.setTextColor(0xFF000000);
+                seq0Temp.setTextColor(0xFF000000);
+                ll.setOrientation(LinearLayout.VERTICAL);
+                ll.setPadding(40,10,40,10);
+
+                switch (weatherThree[k][0]){//금일 or 내일 or 모레
+                    case "0" : seq0Time.setText(""); break;
+                    case "1" : seq0Time.setText(""); break;
+                    case "2" : seq0Time.setText(""); break;
+                    default: seq0Time.setText("");break;
+                }
+                switch (weatherThree[k][1]){// 시간
+                    case "24" : seq0Time.append("오전 0시" );; break;
+                    case "3" : seq0Time.append("오전 3시"); break;
+                    case "6" : seq0Time.append("오전 6시"); break;
+                    case "9" : seq0Time.append("오전 9시");; break;
+                    case "12" : seq0Time.append("오후 12시"); break;
+                    case "15" : seq0Time.append("오후 3시"); break;
+                    case "18" : seq0Time.append("오후 6시");; break;
+                    case "21" : seq0Time.append("오후 9시"); break;
+                    default: seq0Time.setText("에러욤");break;
+                }
+
+
+                seq0Temp.setText(weatherThree[k][2]+"℃");
+
+                switch (weatherThree[k][3]){ //한국어 날씨를 가지고 비교
+                    case "맑음":
+                        seq0IV.setImageResource(R.drawable.sunny);
+                        break;
+                    case "구름 조금":
+                        seq0IV.setImageResource(R.drawable.partialy_cloudy);
+                        break;
+                    case "구름 많음":
+                        seq0IV.setImageResource(R.drawable.cloudy_day);
+                        break;
+                    case "흐림":
+                        seq0IV.setImageResource(R.drawable.cloudy);
+                        break;
+                    case "비":
+                        seq0IV.setImageResource(R.drawable.rainy);
+                        break;
+                    case "눈/비":
+                        seq0IV.setImageResource(R.drawable.sleet);
+                        break;
+                    case "눈":
+                        seq0IV.setImageResource(R.drawable.snowy);
+                        break;
+                    default:
+                        seq0IV.setImageResource(R.mipmap.error);
+                        break;
+                }
+
+                ll.addView(seq0Time);
+                ll.addView(seq0IV);
+                ll.addView(seq0Temp);
+                weatherLayout.addView(ll);
 
             }
 
@@ -890,10 +894,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         lat = location.getLatitude();
         lon = location.getLongitude();
 
-
-    }
-    protected void onStart(){
-        super.onStart();
         WeatherTask task = new WeatherTask();
         com.example.user.myapplication.weather.LatXLngY convert = new com.example.user.myapplication.weather.LatXLngY();
         LatXLngY latXLngY  =  com.example.user.myapplication.weather.LatXLngY.convertGRID_GPS(TO_GRID, lat , lon);
@@ -903,6 +903,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         MidleForeTask midleForeTask = new MidleForeTask();
         midleForeTask.execute("http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?gridx="+(int)latXLngY.x+"&gridy="+(int)latXLngY.y+"");
     }
+
 
     Location lastLocation =null;
 
@@ -923,10 +924,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
     }
 
-    protected void onPause(){
-        super.onPause();
-
-    }
 
     public void search(Location location){
         Geocoder coder = new Geocoder(this, Locale.KOREA);

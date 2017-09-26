@@ -33,12 +33,14 @@ public class SpendingInputDialog extends Dialog implements View.OnClickListener{
     String time, loc, money, day;
     int month, year;
     Context spendContext;
+
     public SpendingInputDialog(Context context, int month, int year){
         super(context);
         spendContext = context;
         this.month = month;
         this.year = year;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
