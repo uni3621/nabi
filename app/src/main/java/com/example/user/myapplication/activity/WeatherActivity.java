@@ -134,11 +134,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         ImageView seventhDayIv;
         TextView seventhDayTmx;
         TextView seventhDayTmn;
-/*
-    public WeatherActivity(Context mContext) {
-        this.mContext = mContext;
-    }
-*/
+
 
 
     //private inner class extending AsyncTask
@@ -402,12 +398,13 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                 ll.setOrientation(LinearLayout.VERTICAL);
                 ll.setPadding(40,10,40,10);
 
-                switch (weatherThree[k][0]){//금일 or 내일 or 모레
-                    case "0" : seq0Time.setText(""); break;
-                    case "1" : seq0Time.setText(""); break;
-                    case "2" : seq0Time.setText(""); break;
+                switch (weatherThree[k][0]){                    //금일 or 내일 or 모레
+                    case "0" : seq0Time.setText("오늘 "); break;
+                    case "1" : seq0Time.setText("내일 "); break;
+                    case "2" : seq0Time.setText("모레 "); break;
                     default: seq0Time.setText("");break;
                 }
+
                 switch (weatherThree[k][1]){// 시간
                     case "24" : seq0Time.append("오전 0시" );; break;
                     case "3" : seq0Time.append("오전 3시"); break;
@@ -834,9 +831,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     }
                 }
 
-<<<<<<< HEAD
-        
-=======
+
             }
         }
 
@@ -853,7 +848,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         final Intent intent = new Intent(this, WeatherCalender.class);
         weatherParse = (TextView)findViewById(R.id.parseWeather);
 
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
         //button 입력
         Button calButton = (Button)findViewById(R.id.calbutton);
         calButton.setOnClickListener(new View.OnClickListener() {

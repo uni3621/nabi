@@ -36,18 +36,15 @@
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />
-<<<<<<< HEAD
+
         <activity android:name=".activity.SignActivity"></activity>
-        <activity android:name=".activity.weathercalender" />
         <activity android:name=".activity.BookmarkActivity"/>
         <activity android:name=".activity.SurroundingSearchActivity"/>
         <activity android:name=".activity.SearchActivity"/>
-=======
-        <activity android:name=".activity.SignActivity" />
+
         <activity android:name=".weather.WeatherCalender" />
 
 
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
     </application>
 
 </manifest>

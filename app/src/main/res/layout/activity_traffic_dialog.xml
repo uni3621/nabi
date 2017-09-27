@@ -110,17 +110,14 @@
             android:id="@+id/trafficSerachBtn"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-<<<<<<< HEAD
             android:text="검색"
             android:layout_alignBottom="@+id/backBtn"
             android:layout_toLeftOf="@+id/backBtn"
             android:layout_toStartOf="@+id/backBtn" />
-=======
             android:layout_alignBottom="@+id/button2"
             android:layout_toLeftOf="@+id/button2"
             android:layout_toStartOf="@+id/button2"
             android:text="검색" />
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
 
         <Button
             android:id="@+id/backBtn"

@@ -179,7 +179,7 @@ public class SpendListAdapter extends BaseAdapter {
             View listItem = listAdapter.getView(i, null, listView);
             //listItem.measure(0, 0);
             listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += listItem.getMeasuredHeight() - 150;
+            totalHeight += listItem.getMeasuredHeight();
         }
         ViewGroup.LayoutParams params = listView.getLayoutParams();
 
