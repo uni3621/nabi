@@ -817,10 +817,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     }
                 }
 
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/WeatherActivity.java
-
-=======
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/WeatherActivity.java
             }
         }
 

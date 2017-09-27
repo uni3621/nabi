@@ -2,38 +2,20 @@ package com.hanium.bpc.nabi.activity;
 
 
 import android.app.ActivityGroup;
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/TrafficActivity.java
-import android.content.Context;
-import android.app.Dialog;
-=======
 import android.app.Dialog;
 import android.content.Context;
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/TrafficActivity.java
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/TrafficActivity.java
-import android.support.annotation.Nullable;
-=======
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/TrafficActivity.java
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/TrafficActivity.java
-import com.example.user.myapplication.R;
-import com.example.user.myapplication.listener.AnimatedTabHostListener;
-
-import com.example.user.myapplication.R;
-import com.example.user.myapplication.dialog.TrafficDialog;
-=======
 import com.hanium.bpc.nabi.R;
 import com.hanium.bpc.nabi.dialog.TrafficDialog;
 import com.hanium.bpc.nabi.listener.AnimatedTabHostListener;
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/TrafficActivity.java
-
 /**
  * Created by user on 2017-07-19.
  */
@@ -66,12 +48,9 @@ public class TrafficActivity extends ActivityGroup {
 
     }
 
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/TrafficActivity.java
     private void setupTab(final View view, final String tag)
     {
-=======
     private void setupTab(final View view, final String tag) {
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/TrafficActivity.java
         View tabview = createTabView(trafficTabHost.getContext(), tag);
 
         // TabSpec은 공개된 생성자가 없으므로 직접 생성할 수 없으며, TabHost의 newTabSpec메서드로 생성
@@ -84,19 +63,16 @@ public class TrafficActivity extends ActivityGroup {
         else if (tag.equals(SURROUNDINGSEARCH))
             setContent.setContent(new Intent(this, SurroundingSearchActivity.class));
 
-<<<<<<< HEAD:app/src/main/java/com/example/user/myapplication/activity/TrafficActivity.java
         trafficTabHost.addTab(setContent);}
     public void searchList(View v) {
         Dialog dialog = new TrafficDialog(this);
         dialog.show();
-=======
         trafficTabHost.addTab(setContent);
     }
     public void searchList(View v) {
         Dialog dialog = new TrafficDialog(this);
         dialog.show();
 
->>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d:app/src/main/java/com/hanium/bpc/nabi/activity/TrafficActivity.java
     }
 
 
