@@ -114,10 +114,13 @@
             android:layout_alignBottom="@+id/backBtn"
             android:layout_toLeftOf="@+id/backBtn"
             android:layout_toStartOf="@+id/backBtn" />
+<<<<<<< HEAD
             android:layout_alignBottom="@+id/button2"
             android:layout_toLeftOf="@+id/button2"
             android:layout_toStartOf="@+id/button2"
             android:text="검색" />
+=======
+>>>>>>> 1928e14fa649db559fafea87d022c30d53f57f4d
 
         <Button
             android:id="@+id/backBtn"
