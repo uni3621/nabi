@@ -22,7 +22,7 @@
         android:layout_below="@+id/signtool"
         android:background="@android:color/white"
         android:padding="10dp"
-        tools:context="com.example.user.myapplication.activity.SignActivity">
+        tools:context="com.hanium.bpc.nabi.activity.SignActivity">
 
         <LinearLayout
             android:id="@+id/linearLayout4"

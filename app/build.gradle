@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.example.user.myapplication"
+        applicationId "com.hanium.bpc.nabi"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:gridlayout-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+    compile files('src/main/libs/libDaumMapAndroid.jar')
 }
 
 dependencies {
@@ -36,4 +37,10 @@ dependencies {
 }
 dependencies {
     compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'gun0912.ted:tedpermission:2.0.0'
 }
