@@ -50,7 +50,6 @@ public class TrafficActivity extends ActivityGroup {
 
     private void setupTab(final View view, final String tag)
     {
-    private void setupTab(final View view, final String tag) {
         View tabview = createTabView(trafficTabHost.getContext(), tag);
 
         // TabSpec은 공개된 생성자가 없으므로 직접 생성할 수 없으며, TabHost의 newTabSpec메서드로 생성
@@ -64,16 +63,7 @@ public class TrafficActivity extends ActivityGroup {
             setContent.setContent(new Intent(this, SurroundingSearchActivity.class));
 
         trafficTabHost.addTab(setContent);}
-    public void searchList(View v) {
-        Dialog dialog = new TrafficDialog(this);
-        dialog.show();
-        trafficTabHost.addTab(setContent);
-    }
-    public void searchList(View v) {
-        Dialog dialog = new TrafficDialog(this);
-        dialog.show();
 
-    }
 
 
 
