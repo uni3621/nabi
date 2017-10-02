@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NABI.iml" filepath="$PROJECT_DIR$/NABI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NABI_GIT.iml" filepath="$PROJECT_DIR$/NABI_GIT.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
