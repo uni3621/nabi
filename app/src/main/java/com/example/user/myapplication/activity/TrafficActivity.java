@@ -1,32 +1,25 @@
 package com.example.user.myapplication.activity;
 
 import android.app.ActivityGroup;
-<<<<<<< HEAD
+
 import android.content.Context;
-=======
+
 import android.app.Dialog;
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.view.LayoutInflater;
-=======
-import android.support.annotation.Nullable;
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
-<<<<<<< HEAD
 import android.widget.TextView;
 
 import com.example.user.myapplication.R;
 import com.example.user.myapplication.listener.AnimatedTabHostListener;
-=======
 
-import com.example.user.myapplication.R;
+
 import com.example.user.myapplication.dialog.TrafficDialog;
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
 
 /**
  * Created by user on 2017-07-19.
@@ -60,27 +53,24 @@ public class TrafficActivity extends ActivityGroup {
 
     }
 
-<<<<<<< HEAD
-    private void setupTab(final View view, final String tag)
-    {
+    private void setupTab(final View view, final String tag) {
         View tabview = createTabView(trafficTabHost.getContext(), tag);
 
         // TabSpec은 공개된 생성자가 없으므로 직접 생성할 수 없으며, TabHost의 newTabSpec메서드로 생성
         TabHost.TabSpec setContent = trafficTabHost.newTabSpec(tag).setIndicator(tabview);
 
-        if(tag.equals(BOOKMARK))
+        if (tag.equals(BOOKMARK))
             setContent.setContent(new Intent(this, BookmarkActivity.class));
-        else if(tag.equals(SEARCH))
+        else if (tag.equals(SEARCH))
             setContent.setContent(new Intent(this, SearchActivity.class));
-        else if(tag.equals(SURROUNDINGSEARCH))
+        else if (tag.equals(SURROUNDINGSEARCH))
             setContent.setContent(new Intent(this, SurroundingSearchActivity.class));
 
         trafficTabHost.addTab(setContent);
-=======
+    }
     public void searchList(View v) {
         Dialog dialog = new TrafficDialog(this);
         dialog.show();
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
 
     }
 

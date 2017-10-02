@@ -829,10 +829,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         super.onPostExecute(doc);
                     }
                 }
-
-<<<<<<< HEAD
-        
-=======
             }
         }
 
@@ -849,7 +845,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         final Intent intent = new Intent(this, WeatherCalender.class);
         weatherParse = (TextView)findViewById(R.id.parseWeather);
 
->>>>>>> dea1c901c1c830565d1aa48f79f3b6332f1f5170
         //button 입력
         Button calButton = (Button)findViewById(R.id.calbutton);
         calButton.setOnClickListener(new View.OnClickListener() {
