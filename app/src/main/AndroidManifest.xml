@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.user.myapplication">
+    package="com.hanium.bpc.nabi">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 지도 API -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATEc" />
-    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 카메라 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="92ecbbd04f4b4d44170e57b9a5edcfbe" />
 
     <application
         android:allowBackup="true"
@@ -24,23 +37,22 @@
         </activity>
         <activity android:name=".activity.SpendActivity" />
         <activity android:name=".activity.TrafficActivity" />
-
         <activity android:name=".activity.WeatherActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.SearchTrafficActivity"/>
-
+        <activity android:name=".activity.SearchTrafficActivity" />
         <activity android:name=".activity.MyPageActivity" />
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.BookmarkActivity" />
+        <activity android:name=".activity.SurroundingSearchActivity" />
+        <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.SignActivity" />
         <activity android:name=".weather.WeatherCalender" />
-
-
+        <activity android:name=".activity.StationDetailActivity"></activity>
     </application>
 
 </manifest>

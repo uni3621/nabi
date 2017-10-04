@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.example.user.myapplication"
+        applicationId "com.hanium.bpc.nabi"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -34,6 +34,7 @@ dependencies {
     compile files('src/main/libs/httpclient-4.2.2.jar')
     compile files('src/main/libs/httpcore-4.2.2.jar')
     compile files('src/main/libs/httpmime-4.2.2.jar')
+    compile files('src/main/libs/libDaumMapAndroid.jar')
 }
 
 dependencies {
@@ -41,4 +42,10 @@ dependencies {
 }
 dependencies {
     compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'gun0912.ted:tedpermission:2.0.0'
 }
