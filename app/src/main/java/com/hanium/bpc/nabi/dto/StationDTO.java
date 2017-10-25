@@ -13,7 +13,7 @@ public class StationDTO implements Serializable{
     private String regionName;
     private String latitude;
     private String longitude;
-
+    private int click;
     public StationDTO(){}
 
 
@@ -27,6 +27,14 @@ public class StationDTO implements Serializable{
                 ", latitude='" + latitude + '\'' +
                 ", longitude='" + longitude + '\'' +
                 '}';
+    }
+
+    public int getClick() {
+        return click;
+    }
+
+    public void setClick(int click) {
+        this.click = click;
     }
 
     public String getStationId() {

@@ -26,13 +26,15 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
     TextView detailStationName, detailRegionName, detailMobileNum;
     List<BusDTO> busList;
     String lat, lng;
+    int markerIndex = 0;
+    ViewGroup mapViewContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.station_detail);
         mapView = new MapView(this);
         mapView.setDaumMapApiKey(Constants.MAP_KEY);
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
+        mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
         detailStationName = (TextView)findViewById(R.id.detailStationName);
         detailMobileNum = (TextView)findViewById(R.id.detailStationNum);
         detailRegionName = (TextView)findViewById(R.id.detailRegionNum);
@@ -57,11 +59,17 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mapViewContainer.removeView(mapView);
+    }
+
+    @Override
     public void onMapViewInitialized(MapView mapView) {
         mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(Double.parseDouble(lng),Double.parseDouble(lat)), true);
         MapPOIItem marker = new MapPOIItem();
         marker.setItemName("정류장 위치");
-        marker.setTag(0);
+        marker.setTag(markerIndex++);
         marker.setMapPoint(MapPoint.mapPointWithGeoCoord(Double.parseDouble(lng),Double.parseDouble(lat)));
         marker.setMarkerType(MapPOIItem.MarkerType.BluePin); // 기본으로 제공하는 BluePin 마커 모양.
         marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin); // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.

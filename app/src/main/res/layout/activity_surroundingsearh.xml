@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/surroundProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,39 +22,33 @@
         android:layout_height="40dp"
         android:orientation="horizontal">
 
-        <SearchView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:hint=" 노선명을 입력해주세요"
-            android:inputType="textPersonName"
-            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:id="@+id/surrondAddress"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:textAlignment="center"
             android:padding="10dp"
-            android:text="취소"
             android:textColor="#0058bd"
             android:textStyle="bold" />
 
     </LinearLayout>
 
-    <Space
+    <RelativeLayout
+        android:id="@+id/surMap"
         android:layout_width="match_parent"
-        android:layout_height="250dp" />
+        android:layout_height="250dp">
+
+    </RelativeLayout>
 
     <ListView
+        android:id="@+id/surrondListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/transparent"/>
 
 </LinearLayout>
+</RelativeLayout>

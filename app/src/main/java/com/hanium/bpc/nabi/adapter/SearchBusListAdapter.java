@@ -50,23 +50,29 @@ public class SearchBusListAdapter extends BaseAdapter {
         TextView busNum = (TextView) convertView.findViewById(R.id.busNum);
         TextView predictOne= (TextView) convertView.findViewById(R.id.predictOne) ;
         TextView predictTwo = (TextView) convertView.findViewById(R.id.predictTwo);
+        TextView firstSt = (TextView) convertView.findViewById(R.id.firstSt);
+        TextView lastSt = (TextView) convertView.findViewById(R.id.lastSt);
         ImageView busImg = (ImageView)convertView.findViewById(R.id.stationBusImg);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         BusDTO busDTO = listViewItemList.get(position);
 
         busNum.setText(busDTO.getBusName());
-        predictOne.setText(busDTO.getPredictTimeOne()+"분 전");
-        predictTwo.setText(busDTO.getPredictTimeTwo()+"분 전");
+        String predictOneString = busDTO.getPredictTimeOne();
+        String predictTwoString = busDTO.getPredictTimeTwo();
+        if(!predictOneString.equals("")) predictOne.setText(busDTO.getPredictTimeOne()+"분 전 도착예정");
+        if(!predictTwoString.equals("")) predictTwo.setText(busDTO.getPredictTimeTwo()+"분 전 도착예정");
+        firstSt.setText(busDTO.getFirstStation());
+        lastSt.setText(busDTO.getLastStation());
         switch(busDTO.getBusType()){
             case "R":
-                busImg.setImageResource(R.drawable.redbus);
+                busImg.setImageResource(R.drawable.rbus);
                 break;
             case "B":
-                busImg.setImageResource(R.drawable.bluebus);
+                busImg.setImageResource(R.drawable.bbus);
                 break;
             case "G":
-                busImg.setImageResource(R.drawable.greenbus);
+                busImg.setImageResource(R.drawable.gbus);
                 break;
         }
         return convertView;

@@ -11,6 +11,7 @@ import com.hanium.bpc.nabi.R;
 import com.hanium.bpc.nabi.dto.StationDTO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by YTK on 2017-08-13.
@@ -35,6 +36,7 @@ public class SearchTrafficListAdapter extends BaseAdapter {
         return position;
     }
 
+    public List<StationDTO> getStationList() {return listViewItemList;}
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
