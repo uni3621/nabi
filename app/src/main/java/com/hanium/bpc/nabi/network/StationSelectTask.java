@@ -81,8 +81,8 @@ public class StationSelectTask extends AsyncTask<Map<String, String>, Integer, S
             intent.putExtra("lat", dto.getLatitude());
             intent.putExtra("lng", dto.getLongitude());
 
-            SearchActivity.searchProgress.setVisibility(View.GONE);
-            SurroundingSearchActivity.surroundProgressBar.setVisibility(View.GONE);
+            if(SearchActivity.searchProgress != null) SearchActivity.searchProgress.setVisibility(View.GONE);
+            if(SurroundingSearchActivity.surroundProgressBar != null) SurroundingSearchActivity.surroundProgressBar.setVisibility(View.GONE);
             context.startActivity(intent);
         }catch(Exception e){
             e.printStackTrace();

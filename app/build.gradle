@@ -49,3 +49,6 @@ dependencies {
 dependencies {
     compile 'gun0912.ted:tedpermission:2.0.0'
 }
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}

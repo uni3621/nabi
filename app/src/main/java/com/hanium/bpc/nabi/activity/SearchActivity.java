@@ -50,6 +50,8 @@ public class SearchActivity extends AppCompatActivity  implements View.OnClickLi
         stationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                view.setSelected(true);
                 long currentClickTime= SystemClock.uptimeMillis();
                 long elapsedTime=currentClickTime-mLastClickTime;
                 mLastClickTime=currentClickTime;
@@ -58,12 +60,13 @@ public class SearchActivity extends AppCompatActivity  implements View.OnClickLi
                 if(elapsedTime<=MIN_CLICK_INTERVAL){
                     return;
                 }
-
-                view.setSelected(true);
                 StationDTO dto = (StationDTO)parent.getItemAtPosition(position);
                 StationSelectTask selectTask = new StationSelectTask(SearchActivity.this, dto);
                 Map<String, String> params = new HashMap<>();
                 params.put("stationId", dto.getStationId());
+
+//                view.setClickable(false);
+
                 searchProgress.bringToFront();
                 searchProgress.setVisibility(View.VISIBLE);
                 selectTask.execute(params);
