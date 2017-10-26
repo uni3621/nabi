@@ -861,7 +861,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         super.onPostExecute(doc);
                     }
                 }
-
             }
             if(weatherProgress != null) weatherProgress.setVisibility(View.GONE);
         }

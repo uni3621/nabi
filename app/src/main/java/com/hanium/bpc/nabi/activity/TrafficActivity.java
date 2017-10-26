@@ -2,16 +2,23 @@ package com.hanium.bpc.nabi.activity;
 
 
 import android.app.ActivityGroup;
+
+import android.content.Context;
+
+import android.app.Dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+
 
 import com.hanium.bpc.nabi.R;
 import com.hanium.bpc.nabi.dialog.TrafficDialog;
