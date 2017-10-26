@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import com.hanium.bpc.nabi.activity.SearchActivity;
 import com.hanium.bpc.nabi.activity.StationDetailActivity;
+import com.hanium.bpc.nabi.activity.SurroundingSearchActivity;
 import com.hanium.bpc.nabi.dto.BusDTO;
 import com.hanium.bpc.nabi.dto.StationDTO;
 import com.hanium.bpc.nabi.util.Constants;
@@ -66,7 +69,8 @@ public class StationSelectTask extends AsyncTask<Map<String, String>, Integer, S
                     JSONObject obj = jsonArray.getJSONObject(i);
                     busList.add(new BusDTO(obj.getString("locationNoOne"), obj.getString("locationNoTwo"), obj.getString("plateNoOne"),
                             obj.getString("plateNoTwo"), obj.getString("predictTimeOne"), obj.getString("predictTimeTwo")
-                    ,obj.getString("routeId") ,obj.getString("staOrder"), null, obj.getString("busName"), obj.getString("busType")));
+                    ,obj.getString("routeId") ,obj.getString("staOrder"), null, obj.getString("busName"), obj.getString("busType"),
+                            obj.getString("firstStation"), obj.getString("lastStation")));
                 }
             }
             Intent intent = new Intent(context, StationDetailActivity.class);
@@ -76,6 +80,9 @@ public class StationSelectTask extends AsyncTask<Map<String, String>, Integer, S
             intent.putExtra("regionName", dto.getRegionName());
             intent.putExtra("lat", dto.getLatitude());
             intent.putExtra("lng", dto.getLongitude());
+
+            if(SearchActivity.searchProgress != null) SearchActivity.searchProgress.setVisibility(View.GONE);
+            if(SurroundingSearchActivity.surroundProgressBar != null) SurroundingSearchActivity.surroundProgressBar.setVisibility(View.GONE);
             context.startActivity(intent);
         }catch(Exception e){
             e.printStackTrace();
