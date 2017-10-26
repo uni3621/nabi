@@ -29,6 +29,11 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:gridlayout-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+    compile files('src/main/libs/annotations.jar')
+    compile files('src/main/libs/guava-11.0.1.jar')
+    compile files('src/main/libs/httpclient-4.2.2.jar')
+    compile files('src/main/libs/httpcore-4.2.2.jar')
+    compile files('src/main/libs/httpmime-4.2.2.jar')
     compile files('src/main/libs/libDaumMapAndroid.jar')
 }
 
@@ -43,4 +48,7 @@ dependencies {
 }
 dependencies {
     compile 'gun0912.ted:tedpermission:2.0.0'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
 }

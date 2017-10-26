@@ -1,6 +1,8 @@
 package com.hanium.bpc.nabi.dto;
 
-public class SpendDTO {
+import java.io.Serializable;
+
+public class SpendDTO implements Serializable {
 	private String email;
 	private String spendDay;
 	private String location;

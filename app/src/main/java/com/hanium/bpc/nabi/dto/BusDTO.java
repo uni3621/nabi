@@ -14,8 +14,12 @@ public class BusDTO implements Serializable{
 	private String stationId;
 	private String busName;
 	private String busType;
+	private String firstStation;
+	private String lastStation;
 	public BusDTO(){}
-	public BusDTO(String locationNoOne, String locationNoTwo, String plateNoOne, String plateNoTwo, String predictTimeOne, String predictTimeTwo, String routeId, String staOrder, String stationId, String busName, String busType) {
+	public BusDTO(String locationNoOne, String locationNoTwo, String plateNoOne, String plateNoTwo,
+				  String predictTimeOne, String predictTimeTwo, String routeId, String staOrder, String stationId,
+				  String busName, String busType, String first, String last) {
 		this.locationNoOne = locationNoOne;
 		this.locationNoTwo = locationNoTwo;
 		this.plateNoOne = plateNoOne;
@@ -27,6 +31,24 @@ public class BusDTO implements Serializable{
 		this.stationId = stationId;
 		this.busName = busName;
 		this.busType = busType;
+		this.firstStation = first;
+		this.lastStation = last;
+	}
+
+	public String getFirstStation() {
+		return firstStation;
+	}
+
+	public void setFirstStation(String firstStation) {
+		this.firstStation = firstStation;
+	}
+
+	public String getLastStation() {
+		return lastStation;
+	}
+
+	public void setLastStation(String lastStation) {
+		this.lastStation = lastStation;
 	}
 
 	@Override

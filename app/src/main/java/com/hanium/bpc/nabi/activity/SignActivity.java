@@ -1,6 +1,7 @@
 package com.hanium.bpc.nabi.activity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -22,6 +23,9 @@ public class SignActivity extends AppCompatActivity {
     //이메일, 비밀번호, 비밀번호 확인, 이름 입력
     EditText emailEdit, pwEdit, rePwEdit, nameEdit;
     String email, pw, rePw, name;
+    private static final long MIN_CLICK_INTERVAL=600;
+
+    private long mLastClickTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,14 @@ public class SignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(checkValid()){
+                    long currentClickTime= SystemClock.uptimeMillis();
+                    long elapsedTime=currentClickTime-mLastClickTime;
+                    mLastClickTime=currentClickTime;
+
+                    // 중복 클릭인 경우
+                    if(elapsedTime<=MIN_CLICK_INTERVAL){
+                        return;
+                    }
                     SignTask signTask = new SignTask(SignActivity.this);
                     Map<String, String> params = new HashMap<>();
                     params.put("email", email);

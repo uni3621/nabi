@@ -52,7 +52,8 @@
         <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.SignActivity" />
         <activity android:name=".weather.WeatherCalender" />
-        <activity android:name=".activity.StationDetailActivity"></activity>
+        <activity android:name=".activity.StationDetailActivity" />
+        <activity android:name=".activity.BookInfoActivity"></activity>
     </application>
 
 </manifest>

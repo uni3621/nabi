@@ -1,6 +1,7 @@
 package com.hanium.bpc.nabi.activity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,6 +25,10 @@ import java.util.Map;
  */
 
 public class SearchActivity extends AppCompatActivity  implements View.OnClickListener{
+    private static final long MIN_CLICK_INTERVAL=600;
+
+    private long mLastClickTime;
+
     ListView stationListView;
     SearchTrafficListAdapter adapter;
     TextView searchTrafficBtn;
@@ -45,11 +50,25 @@ public class SearchActivity extends AppCompatActivity  implements View.OnClickLi
         stationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 view.setSelected(true);
+                long currentClickTime= SystemClock.uptimeMillis();
+                long elapsedTime=currentClickTime-mLastClickTime;
+                mLastClickTime=currentClickTime;
+
+                // 중복 클릭인 경우
+                if(elapsedTime<=MIN_CLICK_INTERVAL){
+                    return;
+                }
                 StationDTO dto = (StationDTO)parent.getItemAtPosition(position);
                 StationSelectTask selectTask = new StationSelectTask(SearchActivity.this, dto);
                 Map<String, String> params = new HashMap<>();
                 params.put("stationId", dto.getStationId());
+
+//                view.setClickable(false);
+
+                searchProgress.bringToFront();
+                searchProgress.setVisibility(View.VISIBLE);
                 selectTask.execute(params);
 
                 //startActivity(new Intent(SearchActivity.this, StationDetailActivity.class));
