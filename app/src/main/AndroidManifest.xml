@@ -47,22 +47,12 @@
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />
-
-
-        <activity android:name=".activity.SignActivity"></activity>
-        <activity android:name=".activity.BookmarkActivity"/>
-        <activity android:name=".activity.SurroundingSearchActivity"/>
-        <activity android:name=".activity.SearchActivity"/>
-
-        <activity android:name=".weather.WeatherCalender" />
-<<<<<<< HEAD
-
-
-        <activity android:name=".activity.StationDetailActivity"></activity>
-=======
+        <activity android:name=".activity.SignActivity" />
+        <activity android:name=".activity.BookmarkActivity" />
+        <activity android:name=".activity.SurroundingSearchActivity" />
+        <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.StationDetailActivity" />
-        <activity android:name=".activity.BookInfoActivity"></activity>
->>>>>>> a6191cd6ed529dbe4ea3a1d1e8ca1dfd5af8359c
+        <activity android:name=".activity.BookInfoActivity" />
     </application>
 
 </manifest>

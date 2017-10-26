@@ -22,12 +22,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hanium.bpc.nabi.R;
 import com.hanium.bpc.nabi.util.Constants;
-import com.hanium.bpc.nabi.weather.WeatherCalender;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -46,6 +46,8 @@ import java.util.Locale;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import static android.view.View.*;
+
 public class WeatherActivity extends AppCompatActivity  implements LocationListener {
     LinearLayout weatherLayout;
    // private WeatherActivity weatherActivity;
@@ -56,6 +58,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
     boolean isGetLocation = false;
     public static final int TO_GRID = 0;
     public static final int TO_GPS = 1;
+    public static ProgressBar weatherProgress;
     //위치 관련
     LocationManager locationManager;
     Location location ;
@@ -860,6 +863,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                 }
 
             }
+            if(weatherProgress != null) weatherProgress.setVisibility(View.GONE);
         }
 
 
@@ -870,6 +874,33 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+
+    }
+
+
+    Location lastLocation =null;
+    TextView textTime;
+
+
+    private void updateYOURthing(){
+        textTime = (TextView) findViewById(R.id.textTime);
+
+        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
+
+        textTime.setText(currentTime);
+    }
+
+    protected void onResume(){
+        super.onResume();
+
+
+
+        weatherProgress = (ProgressBar) findViewById(R.id.weatherPB);
+
+        weatherProgress.bringToFront();
+        weatherProgress.setVisibility(View.VISIBLE);
+
 
         Thread t = new Thread() {   //Thread 를 사용한 매시간 매초마다 현재시간 reset
 
@@ -892,11 +923,11 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         t.start();
 
 
-        final Intent intent = new Intent(this, WeatherCalender.class);
+        final Intent intent = new Intent(this,WeatherCalendar.class);
 
         //button 입력
         Button calButton = (Button)findViewById(R.id.calbutton);
-        calButton.setOnClickListener(new View.OnClickListener() {
+        calButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -904,7 +935,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
             }
         });
 
-       // weatherActivity = new WeatherActivity(this);
+        // weatherActivity = new WeatherActivity(this);
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);//위치 정보를 컨트롤 할 수 있는 LocationManager 인스턴스 생성
@@ -942,30 +973,13 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         com.hanium.bpc.nabi.weather.LatXLngY convert = new com.hanium.bpc.nabi.weather.LatXLngY();
         LatXLngY latXLngY  =  com.hanium.bpc.nabi.weather.LatXLngY.convertGRID_GPS(TO_GRID, lat , lon);
         Toast.makeText(getApplicationContext(), lat+" , " +lon, Toast.LENGTH_LONG).show();
+
+
+
         task.execute("http://www.kma.go.kr/wid/queryDFS.jsp?gridx="+(int)latXLngY.x+"&gridy="+(int)latXLngY.y+"");
 
         MidleForeTask midleForeTask = new MidleForeTask();
         midleForeTask.execute("http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?gridx="+(int)latXLngY.x+"&gridy="+(int)latXLngY.y+"");
-    }
-
-
-    Location lastLocation =null;
-    TextView textTime;
-
-
-    private void updateYOURthing(){
-        textTime = (TextView) findViewById(R.id.textTime);
-
-        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
-
-        textTime.setText(currentTime);
-    }
-
-    protected void onResume(){
-        super.onResume();
-
-
-
 
 
         //현재 시간 textView로 출력
