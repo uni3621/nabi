@@ -65,10 +65,13 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
     double lat=0;
      double lon=0;
 
+
     //날씨 관련
+
     Document doc = null;
-    TextView weatherParse;
         //금일 날씨
+       String todaySen = "";
+       TextView todayComment;
        TextView todayTemp;
        TextView todayReh;
        TextView todayWs;
@@ -166,24 +169,31 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     switch (todayWf) { //한국어 날씨를 가지고 비교
                         case "맑음":
                             todayWI.setImageResource(R.drawable.sunny);
+                            todaySen += "맑고 ";
                             break;
                         case "구름 조금":
                             todayWI.setImageResource(R.drawable.partialy_cloudy);
+                            todaySen += "구름이 조금있고 ";
                             break;
                         case "구름 많음":
                             todayWI.setImageResource(R.drawable.cloudy_day);
+                            todaySen += "구름이 많고 ";
                             break;
                         case "흐림":
                             todayWI.setImageResource(R.drawable.cloudy);
+                            todaySen += "흐리고 ";
                             break;
                         case "비":
                             todayWI.setImageResource(R.drawable.rainy);
+                            todaySen += "비가 내리고 ";
                             break;
                         case "눈/비":
                             todayWI.setImageResource(R.drawable.sleet);
+                            todaySen += "눈,비가 함께오고 ";
                             break;
                         case "눈":
                             todayWI.setImageResource(R.drawable.snowy);
+                            todaySen += "눈이 내리고 ";
                             break;
                         default:
                             todayWI.setImageResource(R.mipmap.error);
@@ -195,8 +205,26 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     nameList = nameElement.getChildNodes();
                     todayTemp = (TextView)findViewById(R.id.todayTemp);
                     String toTemp = nameList.item(0).getNodeValue();
+                    double temp =Double.parseDouble(toTemp);        //온도를 비교해주기위한 string 에서 double 로 변환
+
+                    if(temp<0){
+                            todaySen += "엄청 춥고 ";
+                    }
+                    if((0<=temp)&&(temp<=9)){
+                            todaySen += "쌀쌀하면서 ";
+                    }
+                    if((10<=temp)&&(temp<=15)){
+                            todaySen += "비교적 따뜻하면서 ";
+                    }
+                    if((16<=temp)&&(temp<=27)){
+                            todaySen += "따뜻하면서 ";
+                    }
+                    if(28<=temp){
+                            todaySen += "더우면서 ";
+                    }
                     todayTemp.setText(toTemp);
                     todayTemp.append("℃");
+
 
                     nameList = todElmt.getElementsByTagName("reh");
                     nameElement = (Element) nameList.item(0);
@@ -212,6 +240,24 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                     todayWs = (TextView)findViewById(R.id.todayWs);
                     double toWs = Double.valueOf(nameList.item(0).getNodeValue());
                     toWs = Double.parseDouble(String.format("%.2f",toWs));
+                    if(toWs<0.3){
+                        todaySen += "바람이 없는 고요한 날씹니다";
+                    }
+                    if((0.3<=toWs)&&(toWs<=1.5)){
+                        todaySen += "선선한 바람이 붑니다";
+                    }
+                    if((1.6<=toWs)&&(toWs<=5.4)){
+                        todaySen += "바람이 조금 붑니다, 신경써주세요";
+                    }
+                    if((5.5<=toWs)&&(toWs<=10.7)){
+                        todaySen += "바람이 조금 거셉니다, 되도록 외출은 자제하세요";
+                    }
+                    if((10.8<=toWs)&&(toWs<=17.1)){
+                        todaySen += "바람이 거셉니다, 외출을 삼가하세요";
+                    }
+                    if(17.2<=toWs){
+                        todaySen += "나가선 큰일난다! 집에 박혀있어!";
+                    }
                     todayWs.setText(""+toWs);
                     todayWs.append("m/s");
 
@@ -249,6 +295,8 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                          todayRain.setText("0");
                          todayRain.append("mm");
                      }
+                    todayComment =(TextView)findViewById(R.id.textTodayComment);
+                    todayComment.setText(todaySen);
 
                 }
 
@@ -289,10 +337,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         firstDayTv.setText(Constants.yoil[(num+1)%7]);
                         nameList = fstElmnt.getElementsByTagName("tmx");
                         firstDayTmx = (TextView)findViewById(R.id.firstDayTmx);
-                        firstDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                        firstDayTmx.setText(""+(int)Double.parseDouble(nameList.item(0).getChildNodes().item(0).getNodeValue())+"℃");
                         nameList = fstElmnt.getElementsByTagName("tmn");
                         firstDayTmn = (TextView)findViewById(R.id.firstDayTmn);
-                        firstDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                        firstDayTmn.setText(""+(int)Double.parseDouble(nameList.item(0).getChildNodes().item(0).getNodeValue())+"℃");
                         firstDayIv = (ImageView)findViewById(R.id.firstDayIv);
                         nameList = fstElmnt.getElementsByTagName("wfKor");
                         switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -329,10 +377,16 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         secondDayTv.setText(Constants.yoil[(num+2)%7]);
                         nameList = fstElmnt.getElementsByTagName("tmx");
                         secondDayTmx = (TextView)findViewById(R.id.secondDayTmx);
-                        secondDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                        int j = (int)Double.parseDouble(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                        if(j == -999){          //기상청 문제로 최고온도가 -999로 나타나는 현상
+                            secondDayTmx.setText("측정중..");
+                        }
+                        else {secondDayTmx.setText(""+j+"℃");}
+
                         nameList = fstElmnt.getElementsByTagName("tmn");
                         secondDayTmn = (TextView)findViewById(R.id.secondDayTmn);
-                        secondDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+
+                        secondDayTmn.setText(""+(int)Double.parseDouble(nameList.item(0).getChildNodes().item(0).getNodeValue())+"℃");
                         secondDayIv = (ImageView)findViewById(R.id.secondDayIv);
                         nameList = fstElmnt.getElementsByTagName("wfKor");
                         switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -375,14 +429,14 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                 seq0Temp = new TextView(WeatherActivity.this);
                 seq0IV = new ImageView(WeatherActivity.this);
                 //style 들
-                seq0IV.setLayoutParams(new LinearLayout.LayoutParams(125,125));
-                seq0Time.setGravity(Gravity.LEFT);
+                seq0IV.setLayoutParams(new LinearLayout.LayoutParams(250,150));
+                seq0Time.setGravity(Gravity.CENTER);
                 seq0Time.setTextSize(10);
                 seq0Temp.setGravity(Gravity.CENTER_HORIZONTAL);
                 seq0Time.setTextColor(0xFF000000);
                 seq0Temp.setTextColor(0xFF000000);
                 ll.setOrientation(LinearLayout.VERTICAL);
-                ll.setPadding(40,10,40,10);
+                ll.setPadding(20,10,20,10);
 
                 switch (weatherThree[k][0]){                    //금일 or 내일 or 모레
                     case "0" : seq0Time.setText("오늘 "); break;
@@ -440,7 +494,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
             }
 
-            weatherParse.setText(s);
 
             super.onPostExecute(doc);
         }
@@ -491,13 +544,13 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         Element fstElmntd = (Element) noded;
                         if(j==1) {
                             thirdDayTv = (TextView) findViewById(R.id.thirdDayTv);
-                            thirdDayTv.setText(Constants.yoil[(num + 3) % 7]);
+                            thirdDayTv.setText(Constants.yoil[(num + 3) % 7]);  //요일 계산하기 위한 계산법
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             thirdDayTmx = (TextView) findViewById(R.id.thirdDayTmx);
-                            thirdDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            thirdDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             nameList = fstElmntd.getElementsByTagName("tmn");
                             thirdDayTmn = (TextView) findViewById(R.id.thirdDayTmn);
-                            thirdDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            thirdDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             thirdDayIv = (ImageView) findViewById(R.id.thirdDayIv);
                             nameList = fstElmntd.getElementsByTagName("wf");
                             switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -556,10 +609,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                             forthDayTv.setText(Constants.yoil[(num + 4) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             forthDayTmx = (TextView) findViewById(R.id.forthDayTmx);
-                            forthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            forthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             nameList = fstElmntd.getElementsByTagName("tmn");
                             forthDayTmn = (TextView) findViewById(R.id.forthDayTmn);
-                            forthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            forthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             forthDayIv = (ImageView) findViewById(R.id.forthDayIv);
                             nameList = fstElmntd.getElementsByTagName("wf");
                             switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -618,10 +671,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                             fifthDayTv.setText(Constants.yoil[(num + 5) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             fifthDayTmx = (TextView) findViewById(R.id.fifthDayTmx);
-                            fifthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            fifthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             nameList = fstElmntd.getElementsByTagName("tmn");
                             fifthDayTmn = (TextView) findViewById(R.id.fifthDayTmn);
-                            fifthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            fifthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             fifthDayIv = (ImageView) findViewById(R.id.fifthDayIv);
                             nameList = fstElmntd.getElementsByTagName("wf");
                             switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -680,10 +733,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                             sixthDayTv.setText(Constants.yoil[(num + 6) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             sixthDayTmx = (TextView) findViewById(R.id.sixthDayTmx);
-                            sixthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            sixthDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             nameList = fstElmntd.getElementsByTagName("tmn");
                             sixthDayTmn = (TextView) findViewById(R.id.sixthDayTmn);
-                            sixthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            sixthDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             sixthDayIv = (ImageView) findViewById(R.id.sixthDayIv);
                             nameList = fstElmntd.getElementsByTagName("wf");
                             switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -742,10 +795,10 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                             seventhDayTv.setText(Constants.yoil[(num + 7) % 7]);
                             nameList = fstElmntd.getElementsByTagName("tmx");
                             seventhDayTmx = (TextView) findViewById(R.id.seventhDayTmx);
-                            seventhDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            seventhDayTmx.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             nameList = fstElmntd.getElementsByTagName("tmn");
                             seventhDayTmn = (TextView) findViewById(R.id.seventhDayTmn);
-                            seventhDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue());
+                            seventhDayTmn.setText(nameList.item(0).getChildNodes().item(0).getNodeValue()+"℃");
                             seventhDayIv = (ImageView) findViewById(R.id.seventhDayIv);
                             nameList = fstElmntd.getElementsByTagName("wf");
                             switch (nameList.item(0).getChildNodes().item(0).getNodeValue()) { //한국어 날씨를 가지고 비교
@@ -800,18 +853,7 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                             }
                         }
 
-                        //날씨 데이터를 추출
-                        s += "" + j + ": 날씨 정보: ";
-                        NodeList nameListd = fstElmntd.getElementsByTagName("tmEf");
-                        s += " 시간 = " + nameListd.item(0).getChildNodes().item(0).getNodeValue() + " ,";
 
-
-                        NodeList websiteListd = fstElmntd.getElementsByTagName("wf");
-                        //<wfKor>맑음</wfKor> =====> <wfKor> 태그의 첫번째 자식노드는 TextNode 이고 TextNode의 값은 맑음
-                        s += "날씨 = " + websiteListd.item(0).getChildNodes().item(0).getNodeValue() + "\n";
-
-
-                        weatherParse.setText(s);
 
                         super.onPostExecute(doc);
                     }
@@ -829,9 +871,28 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
+        Thread t = new Thread() {   //Thread 를 사용한 매시간 매초마다 현재시간 reset
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateYOURthing();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+
 
         final Intent intent = new Intent(this, WeatherCalender.class);
-        weatherParse = (TextView)findViewById(R.id.parseWeather);
 
         //button 입력
         Button calButton = (Button)findViewById(R.id.calbutton);
@@ -889,17 +950,27 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
 
 
     Location lastLocation =null;
+    TextView textTime;
 
+
+    private void updateYOURthing(){
+        textTime = (TextView) findViewById(R.id.textTime);
+
+        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
+
+        textTime.setText(currentTime);
+    }
 
     protected void onResume(){
         super.onResume();
 
 
-        //현재 시간 textView로 출력
-        TextView textTime = (TextView) findViewById(R.id.textTime);
-        String currentTime = DateFormat.getDateTimeInstance().format(new Date());
 
-        textTime.setText(currentTime);
+
+
+        //현재 시간 textView로 출력
+
+
 
         search(lastLocation);
 
