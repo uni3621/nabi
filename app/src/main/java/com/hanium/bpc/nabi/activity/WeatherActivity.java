@@ -819,7 +819,6 @@ public class WeatherActivity extends AppCompatActivity  implements LocationListe
                         super.onPostExecute(doc);
                     }
                 }
-
             }
         }
 
