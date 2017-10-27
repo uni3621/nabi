@@ -63,7 +63,7 @@ public class BusBookSelectTask extends AsyncTask<Map<String, String>, Integer, S
                     JSONObject obj = jsonArray.getJSONObject(i);
                     busList.add(new BusDTO(null, null, null,
                             null, obj.getString("predictTimeOne"), obj.getString("predictTimeTwo")
-                            ,obj.getString("routeId") ,null, null, obj.getString("busName"), obj.getString("busType"),
+                            ,obj.getString("routeId") ,null, obj.getString("stationId"), obj.getString("busName"), obj.getString("busType"),
                             obj.getString("firstStation"), obj.getString("lastStation"), obj.getString("upFirstTime"),
                             obj.getString("upLastTime"), obj.getString("downFirstTime"), obj.getString("downLastTime"),
                             obj.getString("peekAlloc"), obj.getString("nPeekAlloc"), obj.getBoolean("book"), obj.getString("stationName")));
