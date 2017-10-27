@@ -69,6 +69,7 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
         busListView = (ListView)findViewById(R.id.busListView);
         busInfoProgress = (ProgressBar)findViewById(R.id.busInfoProgress);
 
+        String mobileNo = intent.getStringExtra("mobileNo");
         adapter = new SearchBusListAdapter(intent.getStringExtra("stationId"));
         busListView.setAdapter(adapter);
 
@@ -78,7 +79,7 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
         //전달받은 액티비티값 받아서 활용하기
         busList = (ArrayList<BusDTO>)intent.getSerializableExtra("busList");
         detailStationName.setText(intent.getStringExtra("stationName"));
-        detailMobileNum.setText(intent.getStringExtra("mobileNo"));
+        detailMobileNum.setText(mobileNo);
         detailRegionName.setText(intent.getStringExtra("regionName"));
 
         lat = intent.getStringExtra("lat");

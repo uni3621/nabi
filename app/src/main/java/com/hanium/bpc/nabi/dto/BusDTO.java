@@ -23,6 +23,15 @@ public class BusDTO implements Serializable{
 	private String peekAlloc;
 	private String nPeekAlloc;
 	private boolean isBook;
+	private String stationName;
+
+	public String getStationName() {
+		return stationName;
+	}
+
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
+	}
 
 	public boolean isBook() {
 		return isBook;
@@ -55,6 +64,30 @@ public class BusDTO implements Serializable{
 		this.peekAlloc = peekAlloc;
 		this.nPeekAlloc = nPeekAlloc;
 		this.isBook = isBook;
+	}
+
+	public BusDTO(String locationNoOne, String locationNoTwo, String plateNoOne, String plateNoTwo, String predictTimeOne, String predictTimeTwo, String routeId, String staOrder, String stationId, String busName, String busType, String firstStation, String lastStation, String upFirstTime, String upLastTime, String downFirstTime, String downLastTime, String peekAlloc, String nPeekAlloc, boolean isBook, String stationName) {
+		this.locationNoOne = locationNoOne;
+		this.locationNoTwo = locationNoTwo;
+		this.plateNoOne = plateNoOne;
+		this.plateNoTwo = plateNoTwo;
+		this.predictTimeOne = predictTimeOne;
+		this.predictTimeTwo = predictTimeTwo;
+		this.routeId = routeId;
+		this.staOrder = staOrder;
+		this.stationId = stationId;
+		this.busName = busName;
+		this.busType = busType;
+		this.firstStation = firstStation;
+		this.lastStation = lastStation;
+		this.upFirstTime = upFirstTime;
+		this.upLastTime = upLastTime;
+		this.downFirstTime = downFirstTime;
+		this.downLastTime = downLastTime;
+		this.peekAlloc = peekAlloc;
+		this.nPeekAlloc = nPeekAlloc;
+		this.isBook = isBook;
+		this.stationName = stationName;
 	}
 
 	public String getUpFirstTime() {
@@ -167,7 +200,8 @@ public class BusDTO implements Serializable{
 	}
 	public void setRouteId(String routeId) {
 		this.routeId = routeId;
-	}String getStationId() {
+	}
+	public String getStationId() {
 		return stationId;
 	}
 	public String getLocationNoOne() {
