@@ -21,7 +21,6 @@ import java.util.Map;
 /**
  * Created by Administrator on 2017-07-19.
  */
-
 public class SplashActivity extends AppCompatActivity{
     int checkstate = 0;
     @Override
