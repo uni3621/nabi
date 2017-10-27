@@ -57,7 +57,7 @@ public class WeatherCalendar extends FragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.calendar_main, menu);
         return true;
     }
 
