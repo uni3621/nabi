@@ -22,6 +22,7 @@ import com.hanium.bpc.nabi.adapter.SearchTrafficListAdapter;
 import com.hanium.bpc.nabi.dto.StationDTO;
 import com.hanium.bpc.nabi.network.StationSelectTask;
 import com.hanium.bpc.nabi.network.SurrondSearchTask;
+import com.hanium.bpc.nabi.user.UserInfo;
 import com.hanium.bpc.nabi.util.Constants;
 import com.hanium.bpc.nabi.util.GpsInfo;
 
@@ -154,6 +155,7 @@ public class SurroundingSearchActivity extends AppCompatActivity implements MapV
                     StationSelectTask stationSelectTask = new StationSelectTask(SurroundingSearchActivity.this, dto);
                     Map<String, String> params = new HashMap<>();
                     params.put("stationId", dto.getStationId());
+                    params.put("email", UserInfo.email);
                     surroundProgressBar.bringToFront();;
                     surroundProgressBar.setVisibility(View.VISIBLE);
                     stationSelectTask.execute(params);

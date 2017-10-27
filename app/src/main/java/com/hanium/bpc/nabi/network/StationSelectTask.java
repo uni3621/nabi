@@ -70,7 +70,9 @@ public class StationSelectTask extends AsyncTask<Map<String, String>, Integer, S
                     busList.add(new BusDTO(obj.getString("locationNoOne"), obj.getString("locationNoTwo"), obj.getString("plateNoOne"),
                             obj.getString("plateNoTwo"), obj.getString("predictTimeOne"), obj.getString("predictTimeTwo")
                     ,obj.getString("routeId") ,obj.getString("staOrder"), null, obj.getString("busName"), obj.getString("busType"),
-                            obj.getString("firstStation"), obj.getString("lastStation")));
+                            obj.getString("firstStation"), obj.getString("lastStation"), obj.getString("upFirstTime"),
+                            obj.getString("upLastTime"), obj.getString("downFirstTime"), obj.getString("downLastTime"),
+                            obj.getString("peekAlloc"), obj.getString("nPeekAlloc"), obj.getBoolean("book")));
                 }
             }
             Intent intent = new Intent(context, StationDetailActivity.class);
@@ -80,7 +82,7 @@ public class StationSelectTask extends AsyncTask<Map<String, String>, Integer, S
             intent.putExtra("regionName", dto.getRegionName());
             intent.putExtra("lat", dto.getLatitude());
             intent.putExtra("lng", dto.getLongitude());
-
+            intent.putExtra("stationId", dto.getStationId());
             if(SearchActivity.searchProgress != null) SearchActivity.searchProgress.setVisibility(View.GONE);
             if(SurroundingSearchActivity.surroundProgressBar != null) SurroundingSearchActivity.surroundProgressBar.setVisibility(View.GONE);
             context.startActivity(intent);

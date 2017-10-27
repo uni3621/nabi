@@ -16,10 +16,25 @@ public class BusDTO implements Serializable{
 	private String busType;
 	private String firstStation;
 	private String lastStation;
+	private String upFirstTime;
+	private String upLastTime;
+	private String downFirstTime;
+	private String downLastTime;
+	private String peekAlloc;
+	private String nPeekAlloc;
+	private boolean isBook;
+
+	public boolean isBook() {
+		return isBook;
+	}
+
+	public void setBook(boolean book) {
+		isBook = book;
+	}
+
 	public BusDTO(){}
-	public BusDTO(String locationNoOne, String locationNoTwo, String plateNoOne, String plateNoTwo,
-				  String predictTimeOne, String predictTimeTwo, String routeId, String staOrder, String stationId,
-				  String busName, String busType, String first, String last) {
+
+	public BusDTO(String locationNoOne, String locationNoTwo, String plateNoOne, String plateNoTwo, String predictTimeOne, String predictTimeTwo, String routeId, String staOrder, String stationId, String busName, String busType, String firstStation, String lastStation, String upFirstTime, String upLastTime, String downFirstTime, String downLastTime, String peekAlloc, String nPeekAlloc, boolean isBook) {
 		this.locationNoOne = locationNoOne;
 		this.locationNoTwo = locationNoTwo;
 		this.plateNoOne = plateNoOne;
@@ -31,8 +46,63 @@ public class BusDTO implements Serializable{
 		this.stationId = stationId;
 		this.busName = busName;
 		this.busType = busType;
-		this.firstStation = first;
-		this.lastStation = last;
+		this.firstStation = firstStation;
+		this.lastStation = lastStation;
+		this.upFirstTime = upFirstTime;
+		this.upLastTime = upLastTime;
+		this.downFirstTime = downFirstTime;
+		this.downLastTime = downLastTime;
+		this.peekAlloc = peekAlloc;
+		this.nPeekAlloc = nPeekAlloc;
+		this.isBook = isBook;
+	}
+
+	public String getUpFirstTime() {
+		return upFirstTime;
+	}
+
+	public void setUpFirstTime(String upFirstTime) {
+		this.upFirstTime = upFirstTime;
+	}
+
+	public String getUpLastTime() {
+		return upLastTime;
+	}
+
+	public void setUpLastTime(String upLastTime) {
+		this.upLastTime = upLastTime;
+	}
+
+	public String getDownFirstTime() {
+		return downFirstTime;
+	}
+
+	public void setDownFirstTime(String downFirstTime) {
+		this.downFirstTime = downFirstTime;
+	}
+
+	public String getDownLastTime() {
+		return downLastTime;
+	}
+
+	public void setDownLastTime(String downLastTime) {
+		this.downLastTime = downLastTime;
+	}
+
+	public String getPeekAlloc() {
+		return peekAlloc;
+	}
+
+	public void setPeekAlloc(String peekAlloc) {
+		this.peekAlloc = peekAlloc;
+	}
+
+	public String getnPeekAlloc() {
+		return nPeekAlloc;
+	}
+
+	public void setnPeekAlloc(String nPeekAlloc) {
+		this.nPeekAlloc = nPeekAlloc;
 	}
 
 	public String getFirstStation() {

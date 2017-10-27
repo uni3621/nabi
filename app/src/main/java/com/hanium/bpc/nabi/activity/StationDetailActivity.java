@@ -62,19 +62,19 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.station_detail);
 
-
+        Intent intent = getIntent();
         detailStationName = (TextView)findViewById(R.id.detailStationName);
         detailMobileNum = (TextView)findViewById(R.id.detailStationNum);
         detailRegionName = (TextView)findViewById(R.id.detailRegionNum);
         busListView = (ListView)findViewById(R.id.busListView);
         busInfoProgress = (ProgressBar)findViewById(R.id.busInfoProgress);
 
-        adapter = new SearchBusListAdapter();
+        adapter = new SearchBusListAdapter(intent.getStringExtra("stationId"));
         busListView.setAdapter(adapter);
 
 
 
-        Intent intent = getIntent();
+
         //전달받은 액티비티값 받아서 활용하기
         busList = (ArrayList<BusDTO>)intent.getSerializableExtra("busList");
         detailStationName.setText(intent.getStringExtra("stationName"));
@@ -90,7 +90,6 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                view.setSelected(true);
                 long currentClickTime= SystemClock.uptimeMillis();
                 long elapsedTime=currentClickTime-mLastClickTime;
                 mLastClickTime=currentClickTime;
@@ -104,7 +103,7 @@ public class StationDetailActivity extends AppCompatActivity  implements MapView
                 String routeName = busDTO.getBusName();
 
                 Log.i("BUSNAME", routeName + "");
-                BusSelectTask selectTask = new BusSelectTask(StationDetailActivity.this, routeName);
+                BusSelectTask selectTask = new BusSelectTask(StationDetailActivity.this, routeName, busDTO);
                 Map<String, String> params = new HashMap<>();
                 params.put("routeId", routeId);
 
