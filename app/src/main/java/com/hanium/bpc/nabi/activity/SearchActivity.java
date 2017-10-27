@@ -16,6 +16,7 @@ import com.hanium.bpc.nabi.adapter.SearchTrafficListAdapter;
 import com.hanium.bpc.nabi.dto.StationDTO;
 import com.hanium.bpc.nabi.network.StationSearchTask;
 import com.hanium.bpc.nabi.network.StationSelectTask;
+import com.hanium.bpc.nabi.user.UserInfo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +65,7 @@ public class SearchActivity extends AppCompatActivity  implements View.OnClickLi
                 StationSelectTask selectTask = new StationSelectTask(SearchActivity.this, dto);
                 Map<String, String> params = new HashMap<>();
                 params.put("stationId", dto.getStationId());
-
+                params.put("email", UserInfo.email);
 //                view.setClickable(false);
 
                 searchProgress.bringToFront();

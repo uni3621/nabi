@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.hanium.bpc.nabi.activity.BookInfoActivity;
 import com.hanium.bpc.nabi.activity.StationDetailActivity;
+import com.hanium.bpc.nabi.dto.BusDTO;
 import com.hanium.bpc.nabi.dto.StationDTO;
 import com.hanium.bpc.nabi.util.Constants;
 
@@ -27,9 +28,11 @@ public class BusSelectTask extends AsyncTask<Map<String, String>, Integer, Strin
 
     Context context;
     String routeName;
-    public BusSelectTask(Context context, String routeName){
+    BusDTO busDTO;
+    public BusSelectTask(Context context, String routeName, BusDTO busDTO){
         this.context = context;
         this.routeName = routeName;
+        this.busDTO = busDTO;
     }
 
     @Override
@@ -84,6 +87,7 @@ public class BusSelectTask extends AsyncTask<Map<String, String>, Integer, Strin
             Intent intent = new Intent(context, BookInfoActivity.class);
             intent.putExtra("routeName", routeName);
             intent.putExtra("stationList", (ArrayList<StationDTO>)stationList);
+            intent.putExtra("busDTO", busDTO);
             if(StationDetailActivity.busInfoProgress != null) StationDetailActivity.busInfoProgress.setVisibility(View.GONE);
             context.startActivity(intent);
         }catch(Exception e){

@@ -4,6 +4,12 @@
         android:state_selected="true"
         android:drawable="@drawable/bookmark_icon_2"/>
     <item
+        android:state_checked="true"
+        android:drawable="@drawable/bookmark_icon_2"/>
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/bookmark_icon"/>
+    <item
         android:state_selected="false"
         android:drawable="@drawable/bookmark_icon"/>
 </selector>
