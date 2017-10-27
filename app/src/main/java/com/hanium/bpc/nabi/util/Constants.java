@@ -6,7 +6,11 @@ package com.hanium.bpc.nabi.util;
 
 public class Constants {
     public static final String nabiAddr = "http://13.113.243.159/NABI_WEB/";
+<<<<<<< HEAD
 //    public static final String  nabiAddr = "http://192.168.0.3:8000/controller/";
+=======
+  //  public static final String  nabiAddr = "http://192.168.0.25:8000/controller/";
+>>>>>>> 98be03642e5b75ad065d9867fc7569eee4094172
     public static final String[] yoil = {"일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"};
     public static final String busKey = "IPB9U8pdb1wTBRqjexFZLR1CSqR2Yx6x%2B351NV5RAOtyiwJnHZxKw42jNJtumw%2F8j%2FzVlrF2zWpBlSo9xX2cyQ%3D%3D";
     public static final String MAP_KEY = "92ecbbd04f4b4d44170e57b9a5edcfbe";

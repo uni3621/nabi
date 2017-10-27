@@ -42,19 +42,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.WeatherCalendar"   ></activity>
         <activity android:name=".activity.SearchTrafficActivity" />
         <activity android:name=".activity.MyPageActivity" />
         <activity android:name=".activity.TrafficItemActivity" />
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.LoginActivity" />
 
+        <activity android:name=".activity.SignActivity" />
+
         <activity android:name=".activity.BookmarkActivity" />
         <activity android:name=".activity.SurroundingSearchActivity" />
         <activity android:name=".activity.SearchActivity" />
-        <activity android:name=".activity.SignActivity" />
-        <activity android:name=".weather.WeatherCalender" />
         <activity android:name=".activity.StationDetailActivity" />
-        <activity android:name=".activity.BookInfoActivity"></activity>
+        <activity android:name=".activity.BookInfoActivity" />
     </application>
 
 </manifest>

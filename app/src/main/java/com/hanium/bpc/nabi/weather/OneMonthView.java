@@ -9,16 +9,37 @@ package com.hanium.bpc.nabi.weather;
         import android.view.View;
         import android.widget.LinearLayout;
 
-
 public class OneMonthView extends LinearLayout implements View.OnClickListener {
 
     private static final String TAG = MConfig.TAG;
     private static final String NAME = "OneMonthView";
     private final String CLASS = NAME + "@" + Integer.toHexString(hashCode());
 
-    private Context mContext;
+    public interface OnClickDayListener {
+        void onClick(OneDayView odv);
+    }
+
     private int mYear;
     private int mMonth;
+    private ArrayList<LinearLayout> weeks = null;
+    private ArrayList<OneDayView> dayViews = null;
+    private OnClickDayListener onClickDayListener;
+    private final OnClickDayListener dummyClickDayListener = new OnClickDayListener() {
+        @Override
+        public void onClick(OneDayView odv) {
+            HLog.d(TAG, CLASS, "Dummy OnClickDayListener-- click on day " + odv.get(Calendar.MONTH) + "/" + odv.get(Calendar.DAY_OF_MONTH));
+        }
+    };
+
+    public void setOnClickDayListener(OnClickDayListener onClickDayListener) {
+        if (onClickDayListener != null) {
+            this.onClickDayListener = onClickDayListener;
+        }
+        else {
+            this.onClickDayListener = dummyClickDayListener;
+        }
+    }
+
 
     public OneMonthView(Context context) {
         this(context, null);
@@ -31,22 +52,21 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
     public OneMonthView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        mContext = context;
-
         setOrientation(LinearLayout.VERTICAL);
+        onClickDayListener = dummyClickDayListener;
 
-        //뷰를 미리 넉넉한 만큼 만들어 놓는다.
+        //Prepare many day-views enough to prevent recreation.
         if(weeks == null) {
 
-            weeks = new ArrayList<LinearLayout>(6); //한달에 최대 6주
-            dayViews = new ArrayList<OneDayView>(42); // 7일 * 6주 = 42
+            weeks = new ArrayList<>(6); //Max 6 weeks in a month
+            dayViews = new ArrayList<>(42); // 7 days * 6 weeks = 42 days
 
             LinearLayout ll = null;
             for(int i=0; i<42; i++) {
 
                 if(i % 7 == 0) {
-                    //한 주 레이아웃 생성
-                    ll = new LinearLayout(mContext);
+                    //Create new week layout
+                    ll = new LinearLayout(context);
                     LinearLayout.LayoutParams params
                             = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0);
                     params.weight = 1;
@@ -61,7 +81,7 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
                         = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT);
                 params.weight = 1;
 
-                OneDayView ov = new OneDayView(mContext);
+                OneDayView ov = new OneDayView(context);
                 ov.setLayoutParams(params);
                 ov.setOnClickListener(this);
 
@@ -70,24 +90,25 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
             }
         }
 
-        //미리보기
+        //for Preview of Graphic editor
         if(isInEditMode()) {
             Calendar cal = Calendar.getInstance();
             make(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
         }
 
+        HLog.i(TAG, CLASS, "new instance");
     }
 
     /**
-     * 년
-     * @return 4자리 년도
+     * Get current year
+     * @return 4 digits number of year
      */
     public int getYear() {
         return mYear;
     }
 
     /**
-     * 달
+     * Get current month
      * @return 0~11 (Calendar.JANUARY ~ Calendar.DECEMBER)
      */
     public int getMonth() {
@@ -104,36 +125,34 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
     }
 
 
-    private ArrayList<LinearLayout> weeks = null;
-    private ArrayList<OneDayView> dayViews = null;
-
+    /**
+     * Make a Month view
+     * @param year year of this month view (4 digits number)
+     * @param month month of this month view (0~11)
+     */
     public void make(int year, int month)
     {
         if(mYear == year && mMonth == month) {
-            HLog.d(TAG, CLASS, ">>>>> same " + year + "." + month);
             return;
         }
 
         long makeTime = System.currentTimeMillis();
-        HLog.d(TAG, CLASS, ">>>>> make");
 
         this.mYear = year;
         this.mMonth = month;
 
-        //if(viewRect.width() == 0 || viewRect.height() == 0) return;
-
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, 1);
-        cal.setFirstDayOfWeek(Calendar.SUNDAY);//일요일을 주의 시작일로 지정
+        cal.setFirstDayOfWeek(Calendar.SUNDAY);//Sunday is first day of week in this sample
 
-        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);//1일의 요일
-        int maxOfMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH);//마지막 일수
-        ArrayList<OneDayData> oneDayDatas = new ArrayList<OneDayData>();
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);//Get day of the week in first day of this month
+        int maxOfMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH);//Get max day number of this month
+        ArrayList<OneDayData> oneDayDataList = new ArrayList<>();
 
-        cal.add(Calendar.DAY_OF_MONTH, Calendar.SUNDAY - dayOfWeek);//주의 첫 일로 이동
+        cal.add(Calendar.DAY_OF_MONTH, Calendar.SUNDAY - dayOfWeek);//Move to first day of first week
         //HLog.d(TAG, CLASS, "first day : " + cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREA) + " / " + cal.get(Calendar.DAY_OF_MONTH));
 
-        // add previous month
+        /* add previous month */
         int seekDay;
         for(;;) {
             seekDay = cal.get(Calendar.DAY_OF_WEEK);
@@ -141,58 +160,58 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
 
             OneDayData one = new OneDayData();
             one.setDay(cal);
-            oneDayDatas.add(one);
+            oneDayDataList.add(one);
             //하루 증가
             cal.add(Calendar.DAY_OF_MONTH, 1);
         }
 
         //HLog.d(TAG, CLASS, "this month : " + cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREA) + " / " + cal.get(Calendar.DAY_OF_MONTH));
-        // add this month
+        /* add this month */
         for(int i=0; i < maxOfMonth; i++) {
             OneDayData one = new OneDayData();
             one.setDay(cal);
-            oneDayDatas.add(one);
-            //하루 증가
+            oneDayDataList.add(one);
+            //add one day
             cal.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        // add next month
+        /* add next month */
         for(;;) {
             if(cal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
                 OneDayData one = new OneDayData();
                 one.setDay(cal);
-                oneDayDatas.add(one);
+                oneDayDataList.add(one);
             }
             else {
                 break;
             }
-            //하루 증가
+            //add one day
             cal.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        if(oneDayDatas.size() == 0) return;
+        if(oneDayDataList.size() == 0) return;
 
-        //모든 주를 지우기
+        //Remove all day-views
         this.removeAllViews();
 
         int count = 0;
-        for(OneDayData oneday : oneDayDatas) {
+        for(OneDayData one : oneDayDataList) {
 
             if(count % 7 == 0) {
                 addView(weeks.get(count / 7));
             }
             OneDayView ov = dayViews.get(count);
-            ov.setDay(oneday);
+            ov.setDay(one);
             ov.setMsg("");
             ov.refresh();
             count++;
         }
 
-        // 주의 개수만큼 무게 지정
+        //Set the weight-sum of LinearLayout to week counts
         this.setWeightSum(getChildCount());
 
 
-        HLog.d(TAG, CLASS, "<<<<< take timeMillis : " + (System.currentTimeMillis() - makeTime));
+        HLog.d(TAG, CLASS, "<<<<< making timeMillis : " + (System.currentTimeMillis() - makeTime));
 
     }
 
@@ -213,8 +232,9 @@ public class OneMonthView extends LinearLayout implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        OneDayView ov = (OneDayView) v;
-        HLog.d(TAG, CLASS, "click " + ov.get(Calendar.MONTH) + "/" + ov.get(Calendar.DAY_OF_MONTH));
+        OneDayView odv = (OneDayView) v;
+        HLog.d(TAG, CLASS, "click " + odv.get(Calendar.MONTH) + "/" + odv.get(Calendar.DAY_OF_MONTH));
+        this.onClickDayListener.onClick(odv);
 
     }
 

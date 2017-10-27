@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ffea8d</color>
-    <color name="colorPrimaryDark">#003399</color>
+    <color name="colorPrimaryDark">#023396</color>
     <color name="colorAccent">#ff4081</color>
     <color name="nabiColor">#73c5ff</color>
     <color name="nabiColor2">#C6E1F5</color>
